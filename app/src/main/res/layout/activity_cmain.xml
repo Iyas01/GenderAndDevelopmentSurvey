@@ -1,8 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.android.genderanddevelopmentsurvey.CMainActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/chosen_barangay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Barangay "
+        android:textSize="23sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/housingUnitNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Housing Unit No:"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/buildingNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Building No:"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/totalHouseholdNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Total Household No:"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/enumerator"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enumerator:"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/respondent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Respondent:"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Address:"
+        android:inputType="textPostalAddress" />
+
+    <EditText
+        android:id="@+id/timeStarted"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Time Started:"
+        android:inputType="time" />
+
+    <Button
+        android:id="@+id/btn_cmain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="next" />
+
+</LinearLayout>

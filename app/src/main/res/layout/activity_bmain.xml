@@ -6,14 +6,20 @@
     android:orientation="vertical"
     tools:context="com.example.android.genderanddevelopmentsurvey.BMainActivity">
 
-    <SearchView
-        android:id="@+id/sv_barangay"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:focusableInTouchMode="true"
-        android:iconifiedByDefault="false"
-        android:padding="1dp"
-        android:queryHint="@string/barangay_searchview" />
+        android:focusableInTouchMode="true">
+
+        <SearchView
+            android:id="@+id/sv_barangay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:padding="1dp"
+            android:queryHint="@string/barangay_searchview" />
+
+    </LinearLayout>
 
     <ListView
         android:id="@+id/lv_barangay"

@@ -1,8 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.android.genderanddevelopmentsurvey.DMainActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/et_dmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="Input Name"
+        android:inputType="textPersonName"
+        android:padding="10dp" />
+
+    <Button
+        android:id="@+id/btn_dmain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dp"
+        android:text="add" />
+
+    <ListView
+        android:id="@+id/lv_dmain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="10dp" />
+
+</LinearLayout>

@@ -9,5 +9,7 @@ public class DMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dmain);
+
+//        TODO: Create a listview that will list items based on user input, and the users can delete items on the list with swiping
     }
 }
