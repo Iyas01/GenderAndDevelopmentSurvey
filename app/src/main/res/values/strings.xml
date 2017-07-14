@@ -1,0 +1,137 @@
+<resources>
+    <string name="app_name">Gender And Development</string>
+    <string name="home">Dear Respondents,\n\n
+        Good Day!\n
+        The City Planning and Development Office,
+        together with City Health Department(CHD), Department of Manpower Development and Placement
+        (DMDP), Department of Social Welfare and Services(DSWS) and Division for the Welfare of Urban
+        Poor(DWUP) are conducting a survey that will be used as baseline information for city development
+        plans and projects that are gender sensitive and gender responsive. The survey covers household
+        characteristics and demographics, employment, health related and questions.
+
+        The data collected in this survey will be used solely for the purpose mentioned above, data
+        confidentiality and privacy will be strictly followed.
+
+        Thank you very much for your cooperation.\n\n
+
+        Respectfully,
+    </string>
+    <string name="oic">MA. CONCEPCION T. ENCABO\n OIC-CPDO
+    </string>
+    <string name="begin">Begin</string>
+    <string name="barangay_searchview">Search your barangay</string>
+
+    <string-array name="array_barangay">
+        <item>Adlaon</item>
+        <item>Agsungot</item>
+        <item>Apas</item>
+        <item>Babag</item>
+        <item>Bacayan</item>
+        <item>Banilad</item>
+        <item>Basak Pardo</item>
+        <item>Basak San Nicolas</item>
+        <item>Binaliw</item>
+        <item>Bonbon</item>
+        <item>Budlaan</item>
+        <item>Buhisan</item>
+        <item>Bulacao</item>
+        <item>Buot-Taop</item>
+        <item>Busay</item>
+        <item>Calamba</item>
+        <item>Cambinocot</item>
+        <item>Capitol Site</item>
+        <item>Carreta</item>
+        <item>Cogon Pardo</item>
+        <item>Cogon Ramos</item>
+        <item>Day-as</item>
+        <item>Duljo Fatima</item>
+        <item>Ermita</item>
+        <item>Guadalupe</item>
+        <item>Guba</item>
+        <item>Hipodromo</item>
+        <item>Inayawan</item>
+        <item>Kalubihan</item>
+        <item>Kalunasan</item>
+        <item>Kamagayan</item>
+        <item>Kamputhaw</item>
+        <item>Kasambagan</item>
+        <item>Kinasang-an</item>
+        <item>Labangon</item>
+        <item>Lahug</item>
+        <item>Lorega San Miguel</item>
+        <item>Lusaran</item>
+        <item>Luz</item>
+        <item>Mabini</item>
+        <item>Mabolo</item>
+        <item>Malubog</item>
+        <item>Mambaling</item>
+        <item>Pahina Central</item>
+        <item>Pahina San Nicolas</item>
+        <item>Pamutan</item>
+        <item>Parian</item>
+        <item>Paril</item>
+        <item>Pasil</item>
+        <item>Pit-os</item>
+        <item>Poblacion Pardo</item>
+        <item>PulangBato</item>
+        <item>Pung-ol Sibugay</item>
+        <item>Punta Princesa</item>
+        <item>Quiot</item>
+        <item>Sambag 1</item>
+        <item>Sambag 2</item>
+        <item>San Antonio</item>
+        <item>San Jose</item>
+        <item>San Nicolas Proper</item>
+        <item>San Roque</item>
+        <item>Santa Cruz</item>
+        <item>Santo Niño</item>
+        <item>Sapang Dako</item>
+        <item>Sawang Calero</item>
+        <item>Sinsin</item>
+        <item>Sirao</item>
+        <item>Suba</item>
+        <item>Sudlon 1</item>
+        <item>Sudlon 2</item>
+        <item>T.Padilla</item>
+        <item>Tabunan</item>
+        <item>Tag-bao</item>
+        <item>Talamban</item>
+        <item>Taptap</item>
+        <item>Tejero</item>
+        <item>Tinago</item>
+        <item>Tisa</item>
+        <item>Toong</item>
+        <item>Zapatera</item>
+    </string-array>
+
+    <string-array name="DemographySp1">
+        <item>Head</item>
+        <item>Spouse</item>
+        <item>Son/Daughter</item>
+        <item>Son/Daughter-in-law</item>
+        <item>Grandchild</item>
+        <item>Parent</item>
+        <item>Other Relative</item>
+        <item>Household help</item>
+        <item>Others</item>
+    </string-array>
+
+    <string-array name="DemographySp2">
+        <item>Single</item>
+        <item>Legally Married</item>
+        <item>Widowed</item>
+        <item>Divorced/Separated</item>
+        <item>Common Law/Live-in</item>
+        <item>Single Parent</item>
+    </string-array>
+
+    <string-array name="DemographySp3">
+        <item>Roman Catholic</item>
+        <item>Protestant</item>
+        <item>Iglesia ni Kristo</item>
+        <item>Aglipay</item>
+        <item>Islam</item>
+        <item>Others</item>
+        <item>None</item>
+    </string-array>
+</resources>
