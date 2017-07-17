@@ -4,8 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:weightSum="1"
     tools:context="com.example.android.genderanddevelopmentsurvey.DMainActivity">
 
+    <ListView
+        android:id="@+id/lv_dmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_weight="1" />
 
     <EditText
         android:id="@+id/et_dmain"
@@ -24,11 +31,5 @@
         android:layout_gravity="center_horizontal"
         android:padding="10dp"
         android:text="add" />
-
-    <ListView
-        android:id="@+id/lv_dmain"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp" />
 
 </LinearLayout>
