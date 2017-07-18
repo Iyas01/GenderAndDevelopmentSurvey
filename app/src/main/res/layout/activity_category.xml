@@ -1,8 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Category">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/demographyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFCDD2"
+        android:text="DEMOGRAPHY" />
+
+    <Button
+        android:id="@+id/edalBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F48FB1"
+        android:text="EDUCATION AND LITERACY" />
+
+    <Button
+        android:id="@+id/partiBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#BA68C8"
+        android:text="PARTICIPATION" />
+
+    <Button
+        android:id="@+id/econoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#7E57C2"
+        android:text="ECONOMIC ACTIVITY" />
+
+    <Button
+        android:id="@+id/healthBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3F51B5"
+        android:text="HEALTH" />
+
+    <Button
+        android:id="@+id/hocBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#1E88E5"
+        android:text="HOUSING CHARACTERISTIC" />
+
+    <Button
+        android:id="@+id/infoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFEB3B"
+        android:text="INFORMATION ON ASSETS AND PROPERTIES" />
+
+    <Button
+        android:id="@+id/interBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#009688"
+        android:text="INTERVIEW STATUS" />
+
+
+</LinearLayout>
