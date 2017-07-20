@@ -1,45 +1,43 @@
 package com.example.android.genderanddevelopmentsurvey;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.v4.view.GestureDetectorCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.android.genderanddevelopmentsurvey.Categories.Category;
 
 import java.util.ArrayList;
 
+//SwipeMenuListView is deprecated in favor of the new "RecyclerView"
 public class DMainActivity extends AppCompatActivity {
-
-    public int itemSelected;
+    //    private static final String TAG = "DMainActivity"; - for logging purposes
     EditText fromUserInput;
     ArrayList<String> arrHouseholdMems = new ArrayList<>();
-    ListView showMems;
+    SwipeMenuListView showMems;
     String userInput;
     ArrayAdapter adapter;
-    GestureDetectorCompat swipe;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dmain);
 
-//   Create a swipe gesture listening event
-        swipe = new GestureDetectorCompat(DMainActivity.this, new swipeToDelete());
-
 //      Create arrayList from user inputs
         fromUserInput = (EditText) findViewById(R.id.et_dmain);
-        Button button = (Button) findViewById(R.id.btn_dmain);
-        showMems = (ListView) findViewById(R.id.lv_dmain);
+        Button button = (Button) findViewById(R.id.btn_dmain); //add button
+        showMems = (SwipeMenuListView) findViewById(R.id.lv_dmain);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,43 +65,65 @@ public class DMainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(DMainActivity.this, Category.class);
+                intent.putExtra("householdMem", showMems.getItemAtPosition(position).toString());
                 startActivity(intent);
             }
         });
 
-//I will change this "long press to delete", to "Swipe to delete" later. Option: RecycleView
-//        showMems.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-//            @Override
-//            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-//                arrHouseholdMems.remove(position);
-//                adapter.notifyDataSetChanged();
-//                return false;
-//            }
-//        });
-    }
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
 
-    @Override
-    public boolean onTouchEvent(MotionEvent event) {
-        this.swipe.onTouchEvent(event);
-        return super.onTouchEvent(event);
-    }
+            @Override
+            public void create(SwipeMenu menu) {
+//                // create "open" item
+//                SwipeMenuItem openItem = new SwipeMenuItem(
+//                        getApplicationContext());
+//                // set item background
+//                openItem.setBackground(new ColorDrawable(Color.rgb(0xFF, 0x00,
+//                        0x00)));
+//                // set item width
+//                openItem.setWidth(170);
+//                // set item title
+//                openItem.setTitle("Open");
+//                // set item title fontsize
+//                openItem.setTitleSize(18);
+//                // set item title font color
+//                openItem.setTitleColor(Color.WHITE);
+//                // add to menu
+//                menu.addMenuItem(openItem);
 
-    class swipeToDelete extends GestureDetector.SimpleOnGestureListener {
-
-        @Override
-        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-
-            if (e2.getX() < e1.getX()) {
-
-//                Working on this part
-//                Test this tommorow
-                arrHouseholdMems.remove(onTouchEvent(e1));
-                adapter.notifyDataSetChanged();
-
-            } else {
-                // Do nothing on left to right swipe
+                // create "delete" item
+                SwipeMenuItem deleteItem = new SwipeMenuItem(
+                        getApplicationContext());
+                // set item background
+                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xFF,
+                        0x00, 0x00)));
+                // set item width
+                deleteItem.setWidth(85);
+                // set a icon
+                deleteItem.setIcon(R.drawable.ic_delete);
+                // add to menu
+                menu.addMenuItem(deleteItem);
             }
-            return true;
-        }
+        };
+
+        showMems.setMenuCreator(creator);
+
+        showMems.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                switch (index) {
+                    case 0:
+                        // delete
+                        arrHouseholdMems.remove(position);
+                        adapter.notifyDataSetChanged();
+                        break;
+//                    case 1:
+//                        // open
+//                        break;
+                }
+                // false : not close the menu; true : close the menu
+                return true;
+            }
+        });
     }
 }
