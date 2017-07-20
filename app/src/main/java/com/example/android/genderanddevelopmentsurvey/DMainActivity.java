@@ -65,6 +65,7 @@ public class DMainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(DMainActivity.this, Category.class);
+//            Place the clicked household members name and send it to the next activity
                 intent.putExtra("householdMem", showMems.getItemAtPosition(position).toString());
                 startActivity(intent);
             }

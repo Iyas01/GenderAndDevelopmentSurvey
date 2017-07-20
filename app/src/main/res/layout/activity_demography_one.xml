@@ -7,9 +7,10 @@
     tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Demography.DemographyOne">
 
     <TextView
+        android:id="@+id/tv_rel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What is your relationship to the head of the household?"
+        android:text="What is "
         android:textSize="20sp" />
 
     <Spinner
@@ -19,9 +20,10 @@
         android:layout_marginTop="5dp" />
 
     <TextView
+        android:id="@+id/tv_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="What is your gender?"
+        android:text="What is "
         android:textSize="20sp" />
 
     <RadioGroup
@@ -57,10 +59,11 @@
     </RadioGroup>
 
     <TextView
+        android:id="@+id/tv_birth"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:text="When is your date of birth?"
+        android:text="When is "
         android:textSize="20sp" />
 
     <LinearLayout
@@ -87,9 +90,10 @@
     </LinearLayout>
 
     <TextView
+        android:id="@+id/tv_civ"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Was your birth registered with the local civil registrar?"
+        android:text="Was "
         android:textSize="20sp" />
 
     <RadioGroup

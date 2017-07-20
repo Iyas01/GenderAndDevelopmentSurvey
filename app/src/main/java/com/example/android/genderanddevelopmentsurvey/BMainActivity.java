@@ -35,7 +35,7 @@ public class BMainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//          Get the clicked item on the ListView then display it on the next Activity
+//          Send the clicked item on the ListView to the next Activity
                 Intent intent = new Intent(BMainActivity.this, CMainActivity.class);
                 intent.putExtra("barangayName", listView.getItemAtPosition(position).toString());
                 startActivity(intent);
