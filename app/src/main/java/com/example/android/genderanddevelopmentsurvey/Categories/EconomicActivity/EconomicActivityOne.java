@@ -11,5 +11,7 @@ public class EconomicActivityOne extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_economic_one);
+
+
     }
 }

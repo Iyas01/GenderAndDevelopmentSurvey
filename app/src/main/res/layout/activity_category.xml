@@ -59,9 +59,15 @@
         android:id="@+id/interBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:background="#009688"
         android:text="INTERVIEW STATUS" />
+
+    <Button
+        android:id="@+id/Btn_householdList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Back to Household List" />
 
 
 </LinearLayout>

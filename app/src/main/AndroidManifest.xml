@@ -24,7 +24,8 @@
         <activity android:name=".Categories.EducationAndLiterature.EducationAndLiteratureOne" />
         <activity android:name=".Categories.Participation.ParticipationOne" />
         <activity android:name=".Categories.EconomicActivity.EconomicActivityOne" />
-        <activity android:name=".Categories.Health.HealthOne"></activity>
+        <activity android:name=".Categories.Health.HealthOne" />
+        <activity android:name=".Categories.Demography.DemographyTwo"></activity>
     </application>
 
 </manifest>

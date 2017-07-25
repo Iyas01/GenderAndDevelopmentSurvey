@@ -21,7 +21,7 @@
         android:layout_marginTop="10dp"
         android:ems="10"
         android:hint="Household members name"
-        android:inputType="textPersonName"
+        android:inputType="textCapWords"
         android:padding="10dp" />
 
     <Button

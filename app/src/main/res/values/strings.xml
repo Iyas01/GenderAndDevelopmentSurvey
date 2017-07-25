@@ -20,6 +20,8 @@
     </string>
     <string name="begin">Begin</string>
     <string name="barangay_searchview">Search your barangay</string>
+    <string name="defaultAge">Age: 0</string>
+    <string name="actualAge">Age: %d</string>
 
     <string-array name="array_barangay">
         <item>Adlaon</item>
@@ -133,5 +135,60 @@
         <item>Islam</item>
         <item>Others</item>
         <item>None</item>
+    </string-array>
+
+    <string-array name="education">
+        <item>0 - No Grade</item>
+        <item>01 - Day Care</item>
+        <item>02 - Kindergarten</item>
+        <item>11 - Grade 1</item>
+        <item>12 - Grade 2</item>
+        <item>13 - Grade 3</item>
+        <item>14 - Grade 4</item>
+        <item>15 - Grade 5</item>
+        <item>16 - Grade 6</item>
+        <item>17 - Elementary Graduate</item>
+        <item>18 - Grade 7/1st yr HS</item>
+        <item>19 - Grade 8/2nd yr HS</item>
+        <item>20 - Grade 9/3rd yr HS</item>
+        <item>21 - Grade 10/4th yr HS</item>
+        <item>22 - Junior High/HS graduate</item>
+        <item>23 - Tech Voc Undergrad</item>
+        <item>24 - Tech Voc Graduate</item>
+        <item>31 – 1st Year College</item>
+        <item>32 – 2nd Year College/Associate</item>
+        <item>33 – 3rd Year College</item>
+        <item>34 – 4th Year College or higher</item>
+        <item>35 - College Graduate</item>
+        <item>41 - Post Graduate w/ units</item>
+        <item>51 - ALS Elementary</item>
+        <item>52 - ALS Elementary Graduate</item>
+        <item>53 - ALS Secondary</item>
+        <item>54 - ALS Secondary Grad/Post Grad</item>
+        <item>55 - SPED Elementary</item>
+        <item>56 - SPED Elementary Graduate</item>
+        <item>57 - SPED Secondary</item>
+        <item>58 - SPED Secondary Graduate</item>
+
+    </string-array>
+
+    <string-array name="notAttendingSchool">
+
+        <item>Schools are very far</item>
+        <item>No school within the barangay</item>
+        <item>No regular Transportation</item>
+        <item>High cost of education</item>
+        <item>Illness/Disability</item>
+        <item>Housekeeping/taking care of siblings</item>
+        <item>Marriage</item>
+        <item>Employment/Looking for work</item>
+        <item>Lack of personal interest</item>
+        <item>Cannot cope with school work</item>
+        <item>Finished Schooling</item>
+        <item>Problem with school record</item>
+        <item>Problem with birth certificate</item>
+        <item>To young to go to school</item>
+        <item>Others</item>
+
     </string-array>
 </resources>

@@ -16,7 +16,6 @@ import com.example.android.genderanddevelopmentsurvey.R;
 public class Category extends AppCompatActivity implements View.OnClickListener {
 
     String frDMainActivity;
-    String classContainer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,25 +53,25 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
                 startActivity(intent1);
                 break;
             case R.id.edalBtn:
-                Intent intent2 = new Intent(Category.this, EconomicActivityOne.class);
+                Intent intent2 = new Intent(Category.this, EducationAndLiteratureOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
                 intent2.putExtra("householdMem", frDMainActivity);
                 startActivity(intent2);
                 break;
             case R.id.partiBtn:
-                Intent intent3 = new Intent(Category.this, EducationAndLiteratureOne.class);
+                Intent intent3 = new Intent(Category.this, ParticipationOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
                 intent3.putExtra("householdMem", frDMainActivity);
                 startActivity(intent3);
                 break;
             case R.id.econoBtn:
-                Intent intent4 = new Intent(Category.this, HealthOne.class);
+                Intent intent4 = new Intent(Category.this, EconomicActivityOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
                 intent4.putExtra("householdMem", frDMainActivity);
                 startActivity(intent4);
                 break;
             case R.id.healthBtn:
-                Intent intent5 = new Intent(Category.this, ParticipationOne.class);
+                Intent intent5 = new Intent(Category.this, HealthOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
                 intent5.putExtra("householdMem", frDMainActivity);
                 startActivity(intent5);
@@ -95,6 +94,8 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
 //                intent1.putExtra("householdMem", frDMainActivity);
 //                startActivity(intent8);
 //                break;
+//            case R.id.Btn_householdList:
+//                Code to return to household list
         }
     }
 }
