@@ -20,6 +20,7 @@ import java.util.Calendar;
 public class DemographyOne extends AppCompatActivity {
     String householdMember;
     Intent frCategoryActivityIntent;
+    int age;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
     private Calendar calendar;
 
@@ -80,7 +81,7 @@ public class DemographyOne extends AppCompatActivity {
 
 //                Compute Age
                 int currentYear = calendar.get(Calendar.YEAR);
-                int age = currentYear - year;
+                age = currentYear - year;
 
                 if (age < 0)
                     tvAge.setText(R.string.defaultAge);
@@ -93,6 +94,10 @@ public class DemographyOne extends AppCompatActivity {
         BtnDem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                if age is greater dhan or equal to 15, additional questions will be added.
+                if (age >= 15) {
+                    frCategoryActivityIntent.putExtra("Age", age);
+                }
                 frCategoryActivityIntent = new Intent(DemographyOne.this, DemographyTwo.class);
                 frCategoryActivityIntent.putExtra("householdMem", householdMember);
                 startActivity(frCategoryActivityIntent);
@@ -100,4 +105,5 @@ public class DemographyOne extends AppCompatActivity {
         });
     }
 //    TODO: Store to database: Relationship, gender, birthdate, age, birth registration YES/NO
+//    TODO: Use the age stored in the database to test if it's more than 15, if it is additional questions(EducationAndLiteratureTwo) will be presented
 }

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
@@ -13,10 +14,12 @@ import android.widget.TextView;
 import com.example.android.genderanddevelopmentsurvey.R;
 
 public class EducationAndLiteratureOne extends AppCompatActivity {
-    String householdMember;
+    String householdMember, householdMembersAge;
     Intent frAnotherActivity;
     TextView tv_edLitFour;
     ArrayAdapter<String> edLitSpnAdapter;
+    TextView tv_fifteenPlus;
+    Button Btn_edLit;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,11 +28,15 @@ public class EducationAndLiteratureOne extends AppCompatActivity {
 //        Get the household name from either DMainActivity/DemographyTwo
         frAnotherActivity = getIntent();
         householdMember = frAnotherActivity.getExtras().getString("householdMem");
+//        Get the Age to determine if household member is age 15 or above. Age 15 and above gets additional questions
+        householdMembersAge = frAnotherActivity.getExtras().getString("Age");
 
+        Btn_edLit = (Button) findViewById(R.id.Btn_edLit);
         TextView tv_edLitOne = (TextView) findViewById(R.id.tv_edLitOne);
         TextView tv_edLitTwo = (TextView) findViewById(R.id.tv_edLitTwo);
         TextView tv_edLitThree = (TextView) findViewById(R.id.tv_edLitThree);
         tv_edLitFour = (TextView) findViewById(R.id.tv_edLitFour);
+        tv_fifteenPlus = (TextView) findViewById(R.id.tv_fifteenPlus);
 
         tv_edLitOne.setText("Can " + householdMember + " read and write simple messages in any dialect/language?");
         tv_edLitTwo.setText("What is " + householdMember + "'s highest educational attainment?");
@@ -46,7 +53,7 @@ public class EducationAndLiteratureOne extends AppCompatActivity {
         final RadioGroup rg_school = (RadioGroup) findViewById(R.id.rg_school);
 //      The magic spinner
         final Spinner Spn_noSchool = (Spinner) findViewById(R.id.Spn_noSchool);
-        edLitSpnAdapter = new ArrayAdapter<String>(EducationAndLiteratureOne.this,
+        edLitSpnAdapter = new ArrayAdapter<>(EducationAndLiteratureOne.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.notAttendingSchool));
         edLitSpnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spn_noSchool.setAdapter(edLitSpnAdapter);
@@ -56,7 +63,7 @@ public class EducationAndLiteratureOne extends AppCompatActivity {
         schoolYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tv_edLitFour.setText("Is it public or private school?");
+                tv_edLitFour.setText(R.string.publicPrivateQ);
                 Spn_noSchool.setVisibility(View.GONE);
                 rg_school.setVisibility(View.VISIBLE);
             }
@@ -72,5 +79,35 @@ public class EducationAndLiteratureOne extends AppCompatActivity {
                 Spn_noSchool.setVisibility(View.VISIBLE);
             }
         });
+
+        Btn_edLit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frAnotherActivity = new Intent(EducationAndLiteratureOne.this, educationAndLiteratureTwo.class);
+                startActivity(frAnotherActivity);
+            }
+        });
+
+//        This button will forward to next activity depends on the age of the household member
+//        Btn_edLit = (Button) findViewById(R.id.Btn_edLit);
+//        if (householdMembersAge != null){
+//            Btn_addQuestion.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    frAnotherActivity = new Intent(EducationAndLiteratureOne.this, educationAndLiteratureTwo.class);
+//                    startActivity(frAnotherActivity);
+//                }
+//            });
+//        }
+//        else {
+//            Btn_addQuestion.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    frAnotherActivity = new Intent(EducationAndLiteratureOne.this, Category.class);
+//                    TODO: pass householdMember to Category.class
+//                    startActivity(frAnotherActivity);
+//                }
+//            });
+//        }
     }
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiterature.educationAndLiteratureTwo">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Have you participated in the tech/voc training offered by DMDP/TESDA?"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_LitTwo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="YES" />
+
+        <RadioButton
+            android:id="@+id/rb_LitTwo2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_edLitTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="If YES, please specify the details in the textbox provided below"
+        android:textSize="20sp"
+        android:visibility="gone" />
+
+    <EditText
+        android:id="@+id/et_edLitTwo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:visibility="gone" />
+</LinearLayout>

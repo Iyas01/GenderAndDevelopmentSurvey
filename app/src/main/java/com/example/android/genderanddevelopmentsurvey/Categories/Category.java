@@ -16,6 +16,7 @@ import com.example.android.genderanddevelopmentsurvey.R;
 public class Category extends AppCompatActivity implements View.OnClickListener {
 
     String frDMainActivity;
+    Intent nextActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,57 +43,56 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         frDMainActivity = frDMainActivityIntent.getExtras().getString("householdMem");
     }
 
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.demographyBtn:
-                Intent intent1 = new Intent(Category.this, DemographyOne.class);
+                nextActivity = new Intent(Category.this, DemographyOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-                intent1.putExtra("householdMem", frDMainActivity);
-                startActivity(intent1);
+                nextActivity.putExtra("householdMem", frDMainActivity);
+                startActivity(nextActivity);
                 break;
             case R.id.edalBtn:
-                Intent intent2 = new Intent(Category.this, EducationAndLiteratureOne.class);
+                nextActivity = new Intent(Category.this, EducationAndLiteratureOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-                intent2.putExtra("householdMem", frDMainActivity);
-                startActivity(intent2);
+                nextActivity.putExtra("householdMem", frDMainActivity);
+                startActivity(nextActivity);
                 break;
             case R.id.partiBtn:
-                Intent intent3 = new Intent(Category.this, ParticipationOne.class);
+                nextActivity = new Intent(Category.this, ParticipationOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-                intent3.putExtra("householdMem", frDMainActivity);
-                startActivity(intent3);
+                nextActivity.putExtra("householdMem", frDMainActivity);
+                startActivity(nextActivity);
                 break;
             case R.id.econoBtn:
-                Intent intent4 = new Intent(Category.this, EconomicActivityOne.class);
+                nextActivity = new Intent(Category.this, EconomicActivityOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-                intent4.putExtra("householdMem", frDMainActivity);
-                startActivity(intent4);
+                nextActivity.putExtra("householdMem", frDMainActivity);
+                startActivity(nextActivity);
                 break;
             case R.id.healthBtn:
-                Intent intent5 = new Intent(Category.this, HealthOne.class);
+                nextActivity = new Intent(Category.this, HealthOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-                intent5.putExtra("householdMem", frDMainActivity);
-                startActivity(intent5);
+                nextActivity.putExtra("householdMem", frDMainActivity);
+                startActivity(nextActivity);
                 break;
 //            case R.id.hocBtn:
-//                Intent intent6 = new Intent(Category.this, ForthActivityHousingCharacteristic.class);
+//                nextActivity = new Intent(Category.this, ForthActivityHousingCharacteristic.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-//                intent6.putExtra("householdMem", frDMainActivity);
-//                startActivity(intent6);
+//                nextActivity.putExtra("householdMem", frDMainActivity);
+//                startActivity(nextActivity);
 //                break;
 //            case R.id.infoBtn:
-//                Intent intent7 = new Intent(Category.this, ForthActivityHousingCharacteristic.class);
+//                nextActivity = new Intent(Category.this, ForthActivityHousingCharacteristic.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-//                intent7.putExtra("householdMem", frDMainActivity);
-//                startActivity(intent7);
+//                nextActivity.putExtra("householdMem", frDMainActivity);
+//                startActivity(nextActivity);
 //                break;
 //            case R.id.interBtn:
-//                Intent intent8 = new Intent(Category.this, ForthActivityInterviewStatus.class);
+//                nextActivity = new Intent(Category.this, ForthActivityInterviewStatus.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-//                intent1.putExtra("householdMem", frDMainActivity);
-//                startActivity(intent8);
+//                nextActivity.putExtra("householdMem", frDMainActivity);
+//                startActivity(nextActivity);
 //                break;
 //            case R.id.Btn_householdList:
 //                Code to return to household list

@@ -1,8 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Participation.ParticipationOne">
 
-</android.support.constraint.ConstraintLayout>
+    <!--Are you a registered voter? TextView-->
+    <TextView
+        android:id="@+id/tv_partOne1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <!--Are you a registered voter? RadioGroup-->
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_partOne1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="YES" />
+
+        <RadioButton
+            android:id="@+id/rb_partOne2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO" />
+
+    </RadioGroup>
+
+    <!--Are you an OFW: YES | Did you have any job during the last 6 months?: NO-->
+    <TextView
+        android:id="@+id/tv_partOne2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/rg_partOne1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/rb_partOne3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="YES" />
+
+        <RadioButton
+            android:id="@+id/rb_partOne4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_partOne3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/rb_partOne8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="YES" />
+
+        <RadioButton
+            android:id="@+id/rb_partOne9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="NO" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_partOne3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/rg_partOne2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:visibility="invisible">
+
+        <RadioButton
+            android:id="@+id/rb_partOne5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="YES" />
+
+        <RadioButton
+            android:id="@+id/rb_partOne6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="25dp"
+            android:text="NO" />
+
+        <RadioButton
+            android:id="@+id/rb_partOne7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DON'T KNOW" />
+
+    </RadioGroup>
+
+</LinearLayout>

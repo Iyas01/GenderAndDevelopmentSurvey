@@ -22,6 +22,7 @@
     <string name="barangay_searchview">Search your barangay</string>
     <string name="defaultAge">Age: 0</string>
     <string name="actualAge">Age: %d</string>
+    <string name="publicPrivateQ">Is it public or private school?</string>
 
     <string-array name="array_barangay">
         <item>Adlaon</item>

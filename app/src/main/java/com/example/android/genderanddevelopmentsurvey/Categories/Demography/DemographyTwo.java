@@ -20,8 +20,9 @@ public class DemographyTwo extends AppCompatActivity {
         setContentView(R.layout.activity_demography_two);
 
 //        Get data from DemographyOne: household members name
-        final Intent getHouseholdName = getIntent();
-        final String householdMember = getHouseholdName.getExtras().getString("householdMem");
+        final Intent getHouseholdNameAndAge = getIntent();
+        final String householdMember = getHouseholdNameAndAge.getExtras().getString("householdMem");
+        final String householdMembersAge = getHouseholdNameAndAge.getExtras().getString("Age");
 
         TextView tv_cs = (TextView) findViewById(R.id.tv_cs);
         TextView tv_religion = (TextView) findViewById(R.id.tv_religion);
@@ -41,7 +42,7 @@ public class DemographyTwo extends AppCompatActivity {
         demQTwoArrAdp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         demQTwoSpinner.setAdapter(demQTwoArrAdp);
 
-//        What is your religious affliliation? Spinner
+//        What is your religious affiliation? Spinner
         Spinner DemQTwoSpinner2 = (Spinner) findViewById(R.id.DemQTwoSpinner2);
         demQTwoArrAdp = new ArrayAdapter<>(DemographyTwo.this,
                 android.R.layout.simple_list_item_1, getResources()
@@ -54,6 +55,8 @@ public class DemographyTwo extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intentDem = new Intent(DemographyTwo.this, Category.class);
                 intentDem.putExtra("householdMem", householdMember);
+                if (householdMembersAge != null)
+                    intentDem.putExtra("Age", householdMembersAge);
                 startActivity(intentDem);
             }
         });
