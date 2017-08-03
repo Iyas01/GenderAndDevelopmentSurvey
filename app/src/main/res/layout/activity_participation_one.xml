@@ -35,7 +35,7 @@
 
     </RadioGroup>
 
-    <!--Are you an OFW: YES | Did you have any job during the last 6 months?: NO-->
+    <!--Are you an OFW: YES -->
     <TextView
         android:id="@+id/tv_partOne2"
         android:layout_width="match_parent"

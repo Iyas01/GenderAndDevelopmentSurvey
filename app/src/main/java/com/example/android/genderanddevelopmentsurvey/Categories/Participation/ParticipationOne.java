@@ -72,6 +72,7 @@ public class ParticipationOne extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 tv_partOne3.setText("Did " + householdMember + " vote in the last election?");
+                rg_partOne2.clearCheck();
             }
         });
 
