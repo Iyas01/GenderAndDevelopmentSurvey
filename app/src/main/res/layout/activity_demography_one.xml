@@ -10,6 +10,7 @@
         android:id="@+id/tv_relation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="What is his/her relationship to the head of the household"
         android:textSize="20sp" />
 
     <Spinner
@@ -22,6 +23,7 @@
         android:id="@+id/tv_gender"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="His/her gender?"
         android:textSize="20sp" />
 
     <RadioGroup
@@ -61,6 +63,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
+        android:text="When is his/her birthday?"
         android:textSize="20sp" />
 
     <LinearLayout
@@ -90,6 +93,7 @@
         android:id="@+id/tv_reg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Was his/her birth registered with the local civil registrar?"
         android:textSize="20sp" />
 
     <RadioGroup

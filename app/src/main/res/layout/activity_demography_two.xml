@@ -10,32 +10,39 @@
         android:id="@+id/tv_cs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="What is his/her marital status"
         android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/demQTwoSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"></Spinner>
+        android:layout_marginTop="5dp">
+
+    </Spinner>
 
     <TextView
         android:id="@+id/tv_religion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:text="What is his/her religious affiliation?"
         android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/DemQTwoSpinner2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"></Spinner>
+        android:layout_marginTop="5dp">
+
+    </Spinner>
 
     <TextView
         android:id="@+id/tv_tribe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:text="Does he/she belong to any indigenous tribe?"
         android:textSize="20sp" />
 
     <RadioGroup

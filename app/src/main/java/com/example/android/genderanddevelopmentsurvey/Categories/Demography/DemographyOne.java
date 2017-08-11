@@ -35,16 +35,19 @@ public class DemographyOne extends AppCompatActivity {
         frCategoryActivityIntent = getIntent();
         householdMember = frCategoryActivityIntent.getExtras().getString("householdMem");
 
-        TextView tv_relation = (TextView) findViewById(R.id.tv_relation);
-        TextView tv_gender = (TextView) findViewById(R.id.tv_gender);
-        TextView tv_birth = (TextView) findViewById(R.id.tv_birth);
-        TextView tv_reg = (TextView) findViewById(R.id.tv_reg);
+//        Change the name of the toolbar to the name of the household member
+        this.setTitle("Demography: " + householdMember);
+
+//        TextView tv_relation = (TextView) findViewById(R.id.tv_relation);
+//        TextView tv_gender = (TextView) findViewById(R.id.tv_gender);
+//        TextView tv_birth = (TextView) findViewById(R.id.tv_birth);
+//        TextView tv_reg = (TextView) findViewById(R.id.tv_reg);
 
 //        Questions pass to the TextView
-        tv_relation.setText("What's " + householdMember + "'s relationship to the head of the household?");
-        tv_gender.setText("What's " + householdMember + "'s gender?");
-        tv_birth.setText("When's " + householdMember + "'s date of birth?");
-        tv_reg.setText("Was " + householdMember + "'s birth registered with the local civil registrar?");
+//        tv_relation.setText("What's " + householdMember + "'s relationship to the head of the household?");
+//        tv_gender.setText(householdMember + "'s gender?");
+//        tv_birth.setText("When's " + householdMember + "'s date of birth?");
+//        tv_reg.setText("Was " + householdMember + "'s birth registered with the local civil registrar?");
 
 //        What is your ralationship to the head of the household? Spinner
         Spinner demQTwoSpinner = (Spinner) findViewById(R.id.demQOneSpinner);
@@ -94,12 +97,9 @@ public class DemographyOne extends AppCompatActivity {
         BtnDem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if age is greater dhan or equal to 15, additional questions will be added.
-                if (age >= 15) {
-                    frCategoryActivityIntent.putExtra("Age", age);
-                }
                 frCategoryActivityIntent = new Intent(DemographyOne.this, DemographyTwo.class);
                 frCategoryActivityIntent.putExtra("householdMem", householdMember);
+                frCategoryActivityIntent.putExtra("Age", age);
                 startActivity(frCategoryActivityIntent);
             }
         });

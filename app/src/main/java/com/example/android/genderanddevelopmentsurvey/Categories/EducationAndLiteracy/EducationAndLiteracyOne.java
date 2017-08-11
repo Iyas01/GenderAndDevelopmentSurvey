@@ -1,4 +1,4 @@
-package com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiterature;
+package com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiteracy;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,38 +13,46 @@ import android.widget.TextView;
 
 import com.example.android.genderanddevelopmentsurvey.R;
 
-public class EducationAndLiteratureOne extends AppCompatActivity {
+public class EducationAndLiteracyOne extends AppCompatActivity {
     String householdMember, householdMembersAge;
     Intent frAnotherActivity;
     TextView tv_edLitFour;
     ArrayAdapter<String> edLitSpnAdapter;
     TextView tv_fifteenPlus;
-    Button Btn_edLit;
+    Button Btn_edLit, Btn_edLit2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_education_and_literature_one);
+        setContentView(R.layout.activity_education_and_literacy_one);
 
 //        Get the household name from either DMainActivity/DemographyTwo
         frAnotherActivity = getIntent();
         householdMember = frAnotherActivity.getExtras().getString("householdMem");
 //        Get the Age to determine if household member is age 15 or above. Age 15 and above gets additional questions
-        householdMembersAge = frAnotherActivity.getExtras().getString("Age");
+//        householdMembersAge = frAnotherActivity.getExtras().getString("Age");
+
+//        Display the name of the household member to the action bar
+        this.setTitle("Education: " + householdMember);
+
+//        Convert Age string into an Integer so that we can use it as an argument in our if statement
+//        int intHouseholdMembersAge = Integer.parseInt(householdMembersAge);
 
         Btn_edLit = (Button) findViewById(R.id.Btn_edLit);
-        TextView tv_edLitOne = (TextView) findViewById(R.id.tv_edLitOne);
-        TextView tv_edLitTwo = (TextView) findViewById(R.id.tv_edLitTwo);
-        TextView tv_edLitThree = (TextView) findViewById(R.id.tv_edLitThree);
+        Btn_edLit2 = (Button) findViewById(R.id.Btn_edLit2);
+//        TextView tv_edLitOne = (TextView) findViewById(R.id.tv_edLitOne);
+//        TextView tv_edLitTwo = (TextView) findViewById(R.id.tv_edLitTwo);
+//        TextView tv_edLitThree = (TextView) findViewById(R.id.tv_edLitThree);
         tv_edLitFour = (TextView) findViewById(R.id.tv_edLitFour);
         tv_fifteenPlus = (TextView) findViewById(R.id.tv_fifteenPlus);
 
-        tv_edLitOne.setText("Can " + householdMember + " read and write simple messages in any dialect/language?");
-        tv_edLitTwo.setText("What is " + householdMember + "'s highest educational attainment?");
-        tv_edLitThree.setText("Is " + householdMember + " attending school?");
+//        tv_edLitOne.setText("Can " + householdMember + " read and write simple messages in any dialect/language?");
+//        tv_edLitTwo.setText("What is " + householdMember + "'s highest educational attainment?");
+//        tv_edLitThree.setText("Is " + householdMember + " attending school?");
 
         Spinner edLitSpn = (Spinner) findViewById(R.id.edLitSpn);
 
-        edLitSpnAdapter = new ArrayAdapter<>(EducationAndLiteratureOne.this,
+        edLitSpnAdapter = new ArrayAdapter<>(EducationAndLiteracyOne.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.education));
         edLitSpnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         edLitSpn.setAdapter(edLitSpnAdapter);
@@ -53,7 +61,7 @@ public class EducationAndLiteratureOne extends AppCompatActivity {
         final RadioGroup rg_school = (RadioGroup) findViewById(R.id.rg_school);
 //      The magic spinner
         final Spinner Spn_noSchool = (Spinner) findViewById(R.id.Spn_noSchool);
-        edLitSpnAdapter = new ArrayAdapter<>(EducationAndLiteratureOne.this,
+        edLitSpnAdapter = new ArrayAdapter<>(EducationAndLiteracyOne.this,
                 android.R.layout.simple_list_item_1, getResources().getStringArray(R.array.notAttendingSchool));
         edLitSpnAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spn_noSchool.setAdapter(edLitSpnAdapter);
@@ -80,34 +88,27 @@ public class EducationAndLiteratureOne extends AppCompatActivity {
             }
         });
 
+//        if (intHouseholdMembersAge >= 15) {
+        Btn_edLit.setVisibility(View.VISIBLE);
         Btn_edLit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                frAnotherActivity = new Intent(EducationAndLiteratureOne.this, educationAndLiteratureTwo.class);
+                frAnotherActivity = new Intent(EducationAndLiteracyOne.this, educationAndLiteracyTwo.class);
+                frAnotherActivity.putExtra("householdMem", householdMember);
+//                frAnotherActivity.putExtra("Age", householdMembersAge);
                 startActivity(frAnotherActivity);
             }
         });
+//        } else {
+//            Btn_edLit2.setVisibility(View.VISIBLE);
+//            Btn_edLit2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    frAnotherActivity = new Intent(EducationAndLiteracyOne.this, Category.class);
+//                    startActivity(frAnotherActivity);
+//                }
+//            });
+//        }
 
-//        This button will forward to next activity depends on the age of the household member
-//        Btn_edLit = (Button) findViewById(R.id.Btn_edLit);
-//        if (householdMembersAge != null){
-//            Btn_addQuestion.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    frAnotherActivity = new Intent(EducationAndLiteratureOne.this, educationAndLiteratureTwo.class);
-//                    startActivity(frAnotherActivity);
-//                }
-//            });
-//        }
-//        else {
-//            Btn_addQuestion.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    frAnotherActivity = new Intent(EducationAndLiteratureOne.this, Category.class);
-//                    TODO: pass householdMember to Category.class
-//                    startActivity(frAnotherActivity);
-//                }
-//            });
-//        }
     }
 }

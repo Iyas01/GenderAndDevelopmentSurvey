@@ -21,6 +21,9 @@ public class BMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bmain);
 
+//        Set toolbar name
+        this.setTitle("Choose your Barangay");
+
 //        Setting up the ListView and OnItemClickListener
         ArrayList<String> arrayBarangay = new ArrayList<>();
         arrayBarangay.addAll(Arrays.asList(getResources().getStringArray(R.array.array_barangay)));

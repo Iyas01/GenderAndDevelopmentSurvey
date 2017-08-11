@@ -8,9 +8,10 @@ import android.widget.Button;
 
 import com.example.android.genderanddevelopmentsurvey.Categories.Demography.DemographyOne;
 import com.example.android.genderanddevelopmentsurvey.Categories.EconomicActivity.EconomicActivityOne;
-import com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiterature.EducationAndLiteratureOne;
+import com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiteracy.EducationAndLiteracyOne;
 import com.example.android.genderanddevelopmentsurvey.Categories.Health.HealthOne;
 import com.example.android.genderanddevelopmentsurvey.Categories.Participation.ParticipationOne;
+import com.example.android.genderanddevelopmentsurvey.DMainActivity;
 import com.example.android.genderanddevelopmentsurvey.R;
 
 public class Category extends AppCompatActivity implements View.OnClickListener {
@@ -22,6 +23,9 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
+//        name the toolbar
+        this.setTitle("Category");
+
         Button demographyBtn = (Button) findViewById(R.id.demographyBtn);
         Button edalBtn = (Button) findViewById(R.id.edalBtn);
         Button partiBtn = (Button) findViewById(R.id.partiBtn);
@@ -29,6 +33,7 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         Button healthBtn = (Button) findViewById(R.id.healthBtn);
         Button hocBtn = (Button) findViewById(R.id.hocBtn);
         Button interBtn = (Button) findViewById(R.id.interBtn);
+        Button Btn_householdList = (Button) findViewById(R.id.Btn_householdList);
 
         demographyBtn.setOnClickListener(this);
         edalBtn.setOnClickListener(this);
@@ -37,10 +42,13 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         healthBtn.setOnClickListener(this);
         hocBtn.setOnClickListener(this);
         interBtn.setOnClickListener(this);
+        Btn_householdList.setOnClickListener(this);
 
-//        Get data from DMainActivity: Data to send: clicked household members name
-        Intent frDMainActivityIntent = getIntent();
-        frDMainActivity = frDMainActivityIntent.getExtras().getString("householdMem");
+//        Receive data from DMainActivity: Data to send: clicked household members name
+        Bundle extras = getIntent().getExtras();
+        frDMainActivity = extras.getString("householdMem");
+//        Intent frDMainActivityIntent = getIntent();
+//        frDMainActivity = frDMainActivityIntent.getExtras().getString("householdMem");
     }
 
     @Override
@@ -53,7 +61,7 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
                 startActivity(nextActivity);
                 break;
             case R.id.edalBtn:
-                nextActivity = new Intent(Category.this, EducationAndLiteratureOne.class);
+                nextActivity = new Intent(Category.this, EducationAndLiteracyOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
                 nextActivity.putExtra("householdMem", frDMainActivity);
                 startActivity(nextActivity);
@@ -94,8 +102,12 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
 //                nextActivity.putExtra("householdMem", frDMainActivity);
 //                startActivity(nextActivity);
 //                break;
-//            case R.id.Btn_householdList:
+            case R.id.Btn_householdList:
 //                Code to return to household list
+                nextActivity = new Intent(Category.this, DMainActivity.class);
+                startActivity(nextActivity);
+//                finish();
+                break;
         }
     }
 }

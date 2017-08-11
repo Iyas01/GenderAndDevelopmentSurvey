@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiterature.educationAndLiteratureTwo">
+    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiteracy.educationAndLiteracyTwo">
 
     <TextView
         android:layout_width="match_parent"
@@ -46,6 +46,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textMultiLine"
+        android:inputType="text"
         android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_edLitTwo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="next" />
+
+
 </LinearLayout>

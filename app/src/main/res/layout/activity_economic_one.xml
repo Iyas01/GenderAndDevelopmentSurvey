@@ -9,6 +9,42 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is the Economic Activity" />
+        android:text="His/her averange number of working hours?"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spn_workingHours"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="His/her nature of employment?"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spn_natureOfWork"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Primary business during the past 6 months?"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spn_industry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="20dp"
+        android:text="next" />
 
 </LinearLayout>

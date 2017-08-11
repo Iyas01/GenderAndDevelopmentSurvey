@@ -21,12 +21,18 @@
         <activity android:name=".DMainActivity" />
         <activity android:name=".Categories.Category" />
         <activity android:name=".Categories.Demography.DemographyOne" />
-        <activity android:name=".Categories.EducationAndLiterature.EducationAndLiteratureOne" />
+        <activity android:name=".Categories.EducationAndLiteracy.EducationAndLiteracyOne" />
         <activity android:name=".Categories.Participation.ParticipationOne" />
         <activity android:name=".Categories.EconomicActivity.EconomicActivityOne" />
         <activity android:name=".Categories.Health.HealthOne" />
         <activity android:name=".Categories.Demography.DemographyTwo" />
-        <activity android:name=".Categories.EducationAndLiterature.educationAndLiteratureTwo"></activity>
+        <activity android:name=".Categories.EducationAndLiteracy.educationAndLiteracyTwo" />
+        <activity android:name=".Categories.EconomicActivity.economicActivityTwo" />
+        <activity android:name=".Categories.EconomicActivity.economicActivityThree" />
+        <activity android:name=".Categories.EconomicActivity.economicActivityFour" />
+        <activity android:name=".Categories.Health.healthTwo" />
+        <activity android:name=".Categories.Health.healthThree" />
+        <activity android:name=".Categories.Housing.housingOne"></activity>
     </application>
 
 </manifest>

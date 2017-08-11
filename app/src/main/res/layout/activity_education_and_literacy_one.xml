@@ -4,14 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiterature.EducationAndLiteratureOne">
+    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLiteracy.EducationAndLiteracyOne">
 
     <TextView
         android:id="@+id/tv_edLitOne"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Can he/she read and write simple messages in any dialect/language?"
         android:textSize="20sp" />
-
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -39,6 +39,7 @@
         android:id="@+id/tv_edLitTwo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="What is his/her highest educational attainment?"
         android:textSize="20sp" />
 
     <Spinner
@@ -52,6 +53,7 @@
         android:id="@+id/tv_edLitThree"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Is he/she attending school?"
         android:textSize="20sp" />
 
     <RadioGroup
@@ -139,5 +141,15 @@
         android:id="@+id/Btn_edLit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="next" />
+        android:layout_gravity="end"
+        android:text="next"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/Btn_edLit2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="next"
+        android:visibility="gone" />
 </LinearLayout>

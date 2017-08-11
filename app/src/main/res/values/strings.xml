@@ -192,4 +192,119 @@
         <item>Others</item>
 
     </string-array>
+
+    <string-array name="occupation">
+
+        <item>1 Managers</item>
+        <item>2 Professionals</item>
+        <item>3 Technical and Associate Professionals</item>
+        <item>4 Clerical Support Workers</item>
+        <item>5 Service and Sales Workers</item>
+        <item>6 Skilled Agricultural, Forestry amd Fishery Workers</item>
+        <item>7 Crafts and Related Trades Workers</item>
+        <item>8 Plant and Machine Operators and Assemblers</item>
+        <item>9 Elementary (Unskilled Worker) </item>
+        <item>Armed Forces Occupation</item>
+
+    </string-array>
+
+    <string-array name="workingHours">
+
+        <item>1 – 2 hours</item>
+        <item>1 – 4 hours</item>
+        <item>1 – 6 hours</item>
+        <item>1 – 8 hours</item>
+        <item>more than 8 hours</item>
+
+    </string-array>
+
+    <string-array name="natureOfEmployment">
+
+        <item>Permanent</item>
+        <item>Casual/Seasonal</item>
+        <item>Freelance</item>
+
+    </string-array>
+
+    <string-array name="industry">
+
+        <item>Agriculture, Forestry and Fishing</item>
+        <item>Mining and Quarrying</item>
+        <item>Manufacturing</item>
+        <item>Electricity, Gas, Steam and Air Conditioning Supply</item>
+        <item>Water Supply, Sewerage, Waste Management and Remediation Activities</item>
+        <item>Construction</item>
+        <item>Wholesale and Retail Trade</item>
+        <item>Transportation and Storage</item>
+        <item>Accommodation and Food Service Activities</item>
+        <item>Information and Communication</item>
+        <item>Financial and Insurance Activities</item>
+        <item>Real Estate Activities </item>
+        <item>Professional, Scientific and Technical Activities</item>
+        <item>Administrative and Supportive Activities</item>
+        <item>Public Administration and Defense, Compulsory Social Security</item>
+        <item>Education</item>
+        <item>Human Health and Social Work Activities</item>
+        <item>Arts, Entertainment and Recreation</item>
+        <item>Other Service Activities</item>
+        <item>Activities of households as employers, Undifferentiated goods and services producing activities
+        of households for own use</item>
+        <item>Activities of extra-territorial organizations and bodies</item>
+
+    </string-array>
+
+    <string-array name="saln">
+
+        <item>No income</item>
+        <item>10,000 and below</item>
+        <item>10,001 – 29,999</item>
+        <item>30,000 – 49,999</item>
+        <item>50,000 and above</item>
+
+    </string-array>
+
+    <string-array name="disability">
+
+        <item>Total blindness</item>
+        <item>Partial blindness</item>
+        <item>Low vision</item>
+        <item>Totally deaf</item>
+        <item>Partially deaf</item>
+        <item>Oral defect</item>
+        <item>One hand</item>
+        <item>No hands</item>
+        <item>One Leg</item>
+        <item>No legs</item>
+        <item>Mild cerebral palsy</item>
+        <item>Severe cerebral palsy</item>
+        <item>Retarded</item>
+        <item>mentally ill</item>
+        <item>Mental retardation</item>
+        <item>Multiple impairment</item>
+        <item>Others</item>
+
+    </string-array>
+
+    <string-array name="immunization">
+
+        <item>TT1</item>
+        <item>TT2</item>
+        <item>TT3</item>
+        <item>TT4</item>
+        <item>TT5</item>
+
+    </string-array>
+
+    <string-array name="familyPlanning">
+
+        <item>IUD</item>
+        <item>Pills</item>
+        <item>Condom</item>
+        <item>Ligation</item>
+        <item>Vasectomy</item>
+        <item>Rhythm</item>
+        <item>Natural FP</item>
+        <item>Others</item>
+
+    </string-array>
 </resources>

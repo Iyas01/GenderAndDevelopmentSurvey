@@ -11,6 +11,7 @@
         android:id="@+id/tv_partOne1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Is he/she a registered voter?"
         android:textSize="20sp" />
 
     <!--Are you a registered voter? RadioGroup-->
@@ -35,12 +36,13 @@
 
     </RadioGroup>
 
-    <!--Are you an OFW: YES -->
     <TextView
         android:id="@+id/tv_partOne2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:text="Did he/she do any job in the last 6 months"
+        android:textSize="20sp"
+        android:visibility="gone" />
 
     <RadioGroup
         android:id="@+id/rg_partOne1"
@@ -92,7 +94,8 @@
         android:id="@+id/tv_partOne3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="gone" />
 
     <RadioGroup
         android:id="@+id/rg_partOne2"
@@ -100,7 +103,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
-        android:visibility="invisible">
+        android:visibility="gone">
 
         <RadioButton
             android:id="@+id/rb_partOne5"
@@ -123,5 +126,35 @@
             android:text="DON'T KNOW" />
 
     </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_partOne5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="What was his/her primary job in the last 6 months?"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/spn_occupation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/et_partOne1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:focusableInTouchMode="true"
+        android:hint="Specify type of industry"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginTop="20dp"
+        android:text="next" />
 
 </LinearLayout>

@@ -4,18 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Health.HealthOne">
+    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.EconomicActivity.economicActivityFour">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Special needs/disability"
-        android:textSize="30sp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Does he/she have any special physical/mental disability?"
+        android:text="In the past 6 months, did he/she look for a job?"
         android:textSize="20sp" />
 
     <RadioGroup
@@ -26,88 +20,53 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rb_disYes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="20dp"
             android:text="YES" />
 
         <RadioButton
-            android:id="@+id/rb_disNo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="NO" />
-
     </RadioGroup>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Type of special need/disability"
+        android:text="Location?"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:text="Local" />
+
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foreign" />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="What type of position were he/she was applying for?"
         android:textSize="20sp" />
 
     <Spinner
-        android:id="@+id/spn_disability"
+        android:id="@+id/spn_econo3"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Does he/she have hypertension?"
-        android:textSize="20sp" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_hyperYes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:text="YES" />
-
-        <RadioButton
-            android:id="@+id/rb_hyperNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NO" />
-
-    </RadioGroup>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Does he/she have diabetes?"
-        android:textSize="20sp" />
-
-    <RadioGroup
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-
-        <RadioButton
-            android:id="@+id/rb_diabetesYes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
-            android:text="YES" />
-
-        <RadioButton
-            android:id="@+id/rb_diabetesNo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="NO" />
-
-    </RadioGroup>
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/btn_next"
@@ -115,4 +74,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:text="next" />
+
 </LinearLayout>

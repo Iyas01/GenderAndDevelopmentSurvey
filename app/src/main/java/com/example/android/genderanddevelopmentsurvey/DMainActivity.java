@@ -34,6 +34,9 @@ public class DMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dmain);
 
+//        name the toolbar
+        this.setTitle("Add Household Members");
+
 //      Create arrayList from user inputs
         fromUserInput = (EditText) findViewById(R.id.et_dmain);
         Button button = (Button) findViewById(R.id.btn_dmain); //add button
