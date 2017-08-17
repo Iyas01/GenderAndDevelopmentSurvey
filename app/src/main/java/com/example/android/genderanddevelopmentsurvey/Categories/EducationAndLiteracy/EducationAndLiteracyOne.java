@@ -20,6 +20,7 @@ public class EducationAndLiteracyOne extends AppCompatActivity {
     ArrayAdapter<String> edLitSpnAdapter;
     TextView tv_fifteenPlus;
     Button Btn_edLit, Btn_edLit2;
+    int intHouseholdMembersAge;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,25 +31,39 @@ public class EducationAndLiteracyOne extends AppCompatActivity {
         frAnotherActivity = getIntent();
         householdMember = frAnotherActivity.getExtras().getString("householdMem");
 //        Get the Age to determine if household member is age 15 or above. Age 15 and above gets additional questions
-//        householdMembersAge = frAnotherActivity.getExtras().getString("Age");
+        householdMembersAge = frAnotherActivity.getExtras().getString("Age");
 
 //        Display the name of the household member to the action bar
         this.setTitle("Education: " + householdMember);
 
 //        Convert Age string into an Integer so that we can use it as an argument in our if statement
-//        int intHouseholdMembersAge = Integer.parseInt(householdMembersAge);
+        intHouseholdMembersAge = Integer.parseInt(householdMembersAge);
 
         Btn_edLit = (Button) findViewById(R.id.Btn_edLit);
         Btn_edLit2 = (Button) findViewById(R.id.Btn_edLit2);
-//        TextView tv_edLitOne = (TextView) findViewById(R.id.tv_edLitOne);
-//        TextView tv_edLitTwo = (TextView) findViewById(R.id.tv_edLitTwo);
-//        TextView tv_edLitThree = (TextView) findViewById(R.id.tv_edLitThree);
         tv_edLitFour = (TextView) findViewById(R.id.tv_edLitFour);
         tv_fifteenPlus = (TextView) findViewById(R.id.tv_fifteenPlus);
 
-//        tv_edLitOne.setText("Can " + householdMember + " read and write simple messages in any dialect/language?");
-//        tv_edLitTwo.setText("What is " + householdMember + "'s highest educational attainment?");
-//        tv_edLitThree.setText("Is " + householdMember + " attending school?");
+        //        Test the age of the household member
+        int mAge = 15;
+        //            Btn_edLit.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    frAnotherActivity = new Intent(EducationAndLiteracyOne.this, educationAndLiteracyTwo.class);
+//                    frAnotherActivity.putExtra("householdMem", householdMember);
+//                    startActivity(frAnotherActivity);
+//                }
+//            });
+        //            Btn_edLit2.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    frAnotherActivity = new Intent(EducationAndLiteracyOne.this, Category.class);
+//                    frAnotherActivity.putExtra("householdMem", householdMember);
+//                    frAnotherActivity.putExtra("Age", householdMembersAge);
+//                }
+//            });
+        if (intHouseholdMembersAge >= mAge) Btn_edLit.setVisibility(View.GONE);
+        else Btn_edLit2.setVisibility(View.GONE);
 
         Spinner edLitSpn = (Spinner) findViewById(R.id.edLitSpn);
 
@@ -71,6 +86,7 @@ public class EducationAndLiteracyOne extends AppCompatActivity {
         schoolYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                tv_edLitFour.setVisibility(View.VISIBLE);
                 tv_edLitFour.setText(R.string.publicPrivateQ);
                 Spn_noSchool.setVisibility(View.GONE);
                 rg_school.setVisibility(View.VISIBLE);
@@ -87,28 +103,5 @@ public class EducationAndLiteracyOne extends AppCompatActivity {
                 Spn_noSchool.setVisibility(View.VISIBLE);
             }
         });
-
-//        if (intHouseholdMembersAge >= 15) {
-        Btn_edLit.setVisibility(View.VISIBLE);
-        Btn_edLit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                frAnotherActivity = new Intent(EducationAndLiteracyOne.this, educationAndLiteracyTwo.class);
-                frAnotherActivity.putExtra("householdMem", householdMember);
-//                frAnotherActivity.putExtra("Age", householdMembersAge);
-                startActivity(frAnotherActivity);
-            }
-        });
-//        } else {
-//            Btn_edLit2.setVisibility(View.VISIBLE);
-//            Btn_edLit2.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    frAnotherActivity = new Intent(EducationAndLiteracyOne.this, Category.class);
-//                    startActivity(frAnotherActivity);
-//                }
-//            });
-//        }
-
     }
 }

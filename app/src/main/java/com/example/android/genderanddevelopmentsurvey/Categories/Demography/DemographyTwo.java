@@ -22,7 +22,7 @@ public class DemographyTwo extends AppCompatActivity {
 //        Get data from DemographyOne: household members name
         demographyTwoIntent = getIntent();
         final String householdMember = demographyTwoIntent.getExtras().getString("householdMem");
-//        final String householdMembersAge = demographyTwoIntent.getExtras().getString("Age");
+        final String householdMembersAge = demographyTwoIntent.getExtras().getString("Age");
 
 //        Set the toolbar to display the household members name
         this.setTitle("Demography: " + householdMember);
@@ -58,8 +58,7 @@ public class DemographyTwo extends AppCompatActivity {
             public void onClick(View v) {
                 demographyTwoIntent = new Intent(DemographyTwo.this, Category.class);
                 demographyTwoIntent.putExtra("householdMem", householdMember);
-//                if (householdMembersAge != null)
-//                    intentDem.putExtra("Age", householdMembersAge);
+                demographyTwoIntent.putExtra("Age", householdMembersAge);
                 startActivity(demographyTwoIntent);
             }
         });

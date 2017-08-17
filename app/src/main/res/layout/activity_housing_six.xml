@@ -4,70 +4,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Housing.housingOne">
+    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Housing.housingSix">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DWELLINGS: OCCUPANCY STATUS"
+        android:text="Drainage system"
         android:textSize="20sp" />
 
     <RadioGroup
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Free flowing" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Canal" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Improvised canal" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Footpath available" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp">
+        android:text="Type of septic tank"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <RadioButton
-            android:id="@+id/rb_absentee"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Absentee structure owner" />
-
-        <EditText
-            android:id="@+id/et_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:visibility="gone" />
-
-        <EditText
-            android:id="@+id/et_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address"
-            android:inputType="textPostalAddress"
-            android:visibility="gone" />
+            android:text="Proper septic tank" />
 
         <RadioButton
-            android:id="@+id/rb_strOwner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Structure owner" />
+            android:text="Cesspool" />
 
         <RadioButton
-            android:id="@+id/rb_houseRenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="House renter" />
+            android:text="No facility" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Accesibility of septic tank"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <RadioButton
-            android:id="@+id/rb_roomRenter"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Room renter" />
+            android:layout_marginRight="20dp"
+            android:text="Proper septic tank" />
 
         <RadioButton
-            android:id="@+id/rb_rentFree"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Rent free" />
-
-        <RadioButton
-            android:id="@+id/rb_extended"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Extended" />
+            android:text="Cesspool" />
 
     </RadioGroup>
 

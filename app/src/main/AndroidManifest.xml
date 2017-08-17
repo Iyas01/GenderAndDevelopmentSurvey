@@ -32,7 +32,14 @@
         <activity android:name=".Categories.EconomicActivity.economicActivityFour" />
         <activity android:name=".Categories.Health.healthTwo" />
         <activity android:name=".Categories.Health.healthThree" />
-        <activity android:name=".Categories.Housing.housingOne"></activity>
+        <activity android:name=".Categories.Housing.housingOne" />
+        <activity android:name=".Categories.Housing.housingTwo" />
+        <activity android:name=".Categories.Housing.housingThree" />
+        <activity android:name=".Categories.Housing.housingFour" />
+        <activity android:name=".Categories.Housing.housingFive" />
+        <activity android:name=".Categories.Housing.housingSix" />
+        <activity android:name=".Categories.assetsInfo.assetsInfoOne" />
+        <activity android:name=".Categories.assetsInfo.assetsInfoTwo"></activity>
     </application>
 
 </manifest>

@@ -19,6 +19,7 @@ import java.util.Calendar;
 
 public class DemographyOne extends AppCompatActivity {
     String householdMember;
+    String getHouseholdMembersAge;
     Intent frCategoryActivityIntent;
     int age;
     private DatePickerDialog.OnDateSetListener mDateSetListener;
@@ -93,13 +94,15 @@ public class DemographyOne extends AppCompatActivity {
             }
         };
 
+//        convert int age to string
+        getHouseholdMembersAge = String.valueOf(age);
 //        Send householdMembers name and open next activity
         BtnDem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 frCategoryActivityIntent = new Intent(DemographyOne.this, DemographyTwo.class);
                 frCategoryActivityIntent.putExtra("householdMem", householdMember);
-                frCategoryActivityIntent.putExtra("Age", age);
+                frCategoryActivityIntent.putExtra("Age", getHouseholdMembersAge);
                 startActivity(frCategoryActivityIntent);
             }
         });

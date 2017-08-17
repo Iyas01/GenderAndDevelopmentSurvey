@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Housing.housingOne">
+    tools:context="com.example.android.genderanddevelopmentsurvey.Categories.Housing.housingFour">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="DWELLINGS: OCCUPANCY STATUS"
+        android:text="Use of structure"
         android:textSize="20sp" />
 
     <RadioGroup
@@ -18,56 +18,75 @@
         android:layout_marginBottom="10dp">
 
         <RadioButton
-            android:id="@+id/rb_absentee"
+            android:id="@+id/rb_res"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Purely residential" />
+
+        <RadioButton
+            android:id="@+id/rb_commercial"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Absentee structure owner" />
+            android:text="Commercial " />
 
         <EditText
-            android:id="@+id/et_name"
+            android:id="@+id/et_spec"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:visibility="gone" />
-
-        <EditText
-            android:id="@+id/et_address"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Address"
-            android:inputType="textPostalAddress"
+            android:ems="10"
+            android:focusableInTouchMode="true"
+            android:hint="Specify"
             android:visibility="gone" />
 
         <RadioButton
-            android:id="@+id/rb_strOwner"
+            android:id="@+id/rb_comb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Structure owner" />
+            android:text="Combination of 1 &amp; 2" />
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Available basic facilities in the dwelling"
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Type of toilet"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <RadioButton
-            android:id="@+id/rb_houseRenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="House renter" />
+            android:text="Water Seal" />
 
         <RadioButton
-            android:id="@+id/rb_roomRenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Room renter" />
+            android:text="Flush" />
 
         <RadioButton
-            android:id="@+id/rb_rentFree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rent free" />
+            android:text="Antipolo" />
 
         <RadioButton
-            android:id="@+id/rb_extended"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Extended" />
+            android:text="Fit and Privy" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="None" />
 
     </RadioGroup>
 

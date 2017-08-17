@@ -49,18 +49,18 @@
         android:text="HOUSING CHARACTERISTIC" />
 
     <Button
-        android:id="@+id/infoBtn"
+        android:id="@+id/assetsInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFEB3B"
         android:text="INFORMATION ON ASSETS AND PROPERTIES" />
 
-    <Button
-        android:id="@+id/interBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#009688"
-        android:text="INTERVIEW STATUS" />
+    <!--<Button-->
+    <!--android:id="@+id/intStatus"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:background="#009688"-->
+    <!--android:text="INTERVIEW STATUS" />-->
 
     <Button
         android:id="@+id/Btn_householdList"
