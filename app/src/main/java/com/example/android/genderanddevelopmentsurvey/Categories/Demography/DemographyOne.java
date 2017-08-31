@@ -1,29 +1,19 @@
 package com.example.android.genderanddevelopmentsurvey.Categories.Demography;
 
-import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.example.android.genderanddevelopmentsurvey.R;
-
-import java.util.Calendar;
 
 public class DemographyOne extends AppCompatActivity {
     String householdMember;
     String getHouseholdMembersAge;
     Intent frCategoryActivityIntent;
-    int age;
-    private DatePickerDialog.OnDateSetListener mDateSetListener;
-    private Calendar calendar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,43 +49,6 @@ public class DemographyOne extends AppCompatActivity {
         demQTwoArrAdp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         demQTwoSpinner.setAdapter(demQTwoArrAdp);
 
-//        Date of Birth and Age Computation
-        final TextView datePickerTextView = (TextView) findViewById(R.id.datePickerTextView);
-        datePickerTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                calendar = Calendar.getInstance();
-                int year = calendar.get(Calendar.YEAR);
-                int month = calendar.get(Calendar.MONTH);
-                int day = calendar.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(DemographyOne.this,
-                        android.R.style.Theme_Holo_Dialog_MinWidth, mDateSetListener, year, month, day);
-                datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                datePickerDialog.show();
-            }
-        });
-        final TextView tvAge = (TextView) findViewById(R.id.age);
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int day) {
-                month = month + 1;
-                String date = month + "/" + day + "/" + year;
-                datePickerTextView.setText(date);
-
-//                Compute Age
-                int currentYear = calendar.get(Calendar.YEAR);
-                age = currentYear - year;
-
-                if (age < 0)
-                    tvAge.setText(R.string.defaultAge);
-                else
-                    tvAge.setText(getString(R.string.actualAge, age));
-            }
-        };
-
-//        convert int age to string
-        getHouseholdMembersAge = String.valueOf(age);
 //        Send householdMembers name and open next activity
         BtnDem2.setOnClickListener(new View.OnClickListener() {
             @Override

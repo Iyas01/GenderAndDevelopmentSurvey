@@ -16,7 +16,6 @@ import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
-import com.example.android.genderanddevelopmentsurvey.Categories.Category;
 
 import java.util.ArrayList;
 
@@ -28,11 +27,15 @@ public class DMainActivity extends AppCompatActivity {
     SwipeMenuListView showMems;
     String userInput;
     ArrayAdapter adapter;
+    dbHelper dbAccess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dmain);
+
+//        create an instance of a database connection
+        dbAccess = new dbHelper(this, null, null, 2);
 
 //        name the toolbar
         this.setTitle("Add Household Members");
@@ -59,6 +62,8 @@ public class DMainActivity extends AppCompatActivity {
                             arrHouseholdMems);
                     showMems.setAdapter(adapter);
                     fromUserInput.setText(userInput);
+                    Person person = new Person(userInput);
+                    dbAccess.addPerson(person);
                     fromUserInput.setText("");
                 }
             }
@@ -67,7 +72,7 @@ public class DMainActivity extends AppCompatActivity {
         showMems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(DMainActivity.this, Category.class);
+                Intent intent = new Intent(DMainActivity.this, EGenderAge.class);
 //            Place the clicked household members name and send it to the next activity
                 intent.putExtra("householdMem", showMems.getItemAtPosition(position).toString());
                 startActivity(intent);
@@ -118,7 +123,9 @@ public class DMainActivity extends AppCompatActivity {
                 switch (index) {
                     case 0:
                         // delete
+                        String valueOfPosition = arrHouseholdMems.get(position);
                         arrHouseholdMems.remove(position);
+                        dbAccess.deletePerson(valueOfPosition);
                         adapter.notifyDataSetChanged();
                         break;
 //                    case 1:

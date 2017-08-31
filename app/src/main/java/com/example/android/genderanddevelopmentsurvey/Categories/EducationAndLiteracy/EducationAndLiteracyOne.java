@@ -3,23 +3,26 @@ package com.example.android.genderanddevelopmentsurvey.Categories.EducationAndLi
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.android.genderanddevelopmentsurvey.Person;
 import com.example.android.genderanddevelopmentsurvey.R;
 
 public class EducationAndLiteracyOne extends AppCompatActivity {
-    String householdMember, householdMembersAge;
+
+    private static final String TAG = "EducationAndLiteracy";
+
+    String householdMember;
     Intent frAnotherActivity;
     TextView tv_edLitFour;
     ArrayAdapter<String> edLitSpnAdapter;
     TextView tv_fifteenPlus;
-    Button Btn_edLit, Btn_edLit2;
     int intHouseholdMembersAge;
 
     @Override
@@ -31,21 +34,19 @@ public class EducationAndLiteracyOne extends AppCompatActivity {
         frAnotherActivity = getIntent();
         householdMember = frAnotherActivity.getExtras().getString("householdMem");
 //        Get the Age to determine if household member is age 15 or above. Age 15 and above gets additional questions
-        householdMembersAge = frAnotherActivity.getExtras().getString("Age");
+//        householdMembersAge = frAnotherActivity.getExtras().getString("Age");
 
 //        Display the name of the household member to the action bar
         this.setTitle("Education: " + householdMember);
 
-//        Convert Age string into an Integer so that we can use it as an argument in our if statement
-        intHouseholdMembersAge = Integer.parseInt(householdMembersAge);
+//        get household members age
+        Person person = new Person();
+        intHouseholdMembersAge = person.get_age();
+//        intHouseholdMembersAge = Integer.parseInt(householdMembersAge);
 
-        Btn_edLit = (Button) findViewById(R.id.Btn_edLit);
-        Btn_edLit2 = (Button) findViewById(R.id.Btn_edLit2);
         tv_edLitFour = (TextView) findViewById(R.id.tv_edLitFour);
         tv_fifteenPlus = (TextView) findViewById(R.id.tv_fifteenPlus);
 
-        //        Test the age of the household member
-        int mAge = 15;
         //            Btn_edLit.setOnClickListener(new View.OnClickListener() {
 //                @Override
 //                public void onClick(View v) {
@@ -62,8 +63,8 @@ public class EducationAndLiteracyOne extends AppCompatActivity {
 //                    frAnotherActivity.putExtra("Age", householdMembersAge);
 //                }
 //            });
-        if (intHouseholdMembersAge >= mAge) Btn_edLit.setVisibility(View.GONE);
-        else Btn_edLit2.setVisibility(View.GONE);
+//        if (intHouseholdMembersAge >= mAge) Btn_edLit.setVisibility(View.GONE);
+//        else Btn_edLit2.setVisibility(View.GONE);
 
         Spinner edLitSpn = (Spinner) findViewById(R.id.edLitSpn);
 
@@ -103,5 +104,19 @@ public class EducationAndLiteracyOne extends AppCompatActivity {
                 Spn_noSchool.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    public void evaluate(View view) {
+//        Test the age of the household member
+        Log.d(TAG, "evaluate: " + intHouseholdMembersAge);
+//        if (intHouseholdMembersAge >= 15) {
+//            frAnotherActivity = new Intent(EducationAndLiteracyOne.this, educationAndLiteracyTwo.class);
+//            frAnotherActivity.putExtra("householdMem", householdMember);
+//            startActivity(frAnotherActivity);
+//        } else {
+//            frAnotherActivity = new Intent(EducationAndLiteracyOne.this, Category.class);
+//            frAnotherActivity.putExtra("householdMem", householdMember);
+//            startActivity(frAnotherActivity);
+//        }
     }
 }

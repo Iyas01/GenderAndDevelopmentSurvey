@@ -39,7 +39,8 @@
         <activity android:name=".Categories.Housing.housingFive" />
         <activity android:name=".Categories.Housing.housingSix" />
         <activity android:name=".Categories.assetsInfo.assetsInfoOne" />
-        <activity android:name=".Categories.assetsInfo.assetsInfoTwo"></activity>
+        <activity android:name=".Categories.assetsInfo.assetsInfoTwo" />
+        <activity android:name=".EGenderAge"></activity>
     </application>
 
 </manifest>

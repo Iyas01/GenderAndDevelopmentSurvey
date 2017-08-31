@@ -139,16 +139,24 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/Btn_edLit"
+        android:id="@+id/btn_next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:text="to category" />
+        android:onClick="evaluate"
+        android:text="next" />
 
-    <Button
-        android:id="@+id/Btn_edLit2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:text="to edlit 2" />
+    <!--<Button-->
+    <!--android:id="@+id/Btn_edLit"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:text="to category" />-->
+
+    <!--<Button-->
+    <!--android:id="@+id/Btn_edLit2"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:layout_gravity="end"-->
+    <!--android:text="to edlit 2" />-->
 </LinearLayout>

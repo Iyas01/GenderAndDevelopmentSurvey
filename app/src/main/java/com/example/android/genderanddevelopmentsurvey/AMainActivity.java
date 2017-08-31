@@ -13,6 +13,7 @@ public class AMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amain);
 
+
         Button AMBtn = (Button) findViewById(R.id.button);
         AMBtn.setOnClickListener(new View.OnClickListener() {
             @Override
