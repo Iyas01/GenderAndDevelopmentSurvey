@@ -9,27 +9,29 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class CMainActivity extends AppCompatActivity {
-
-    String frBMainActivity;
-    EditText editHousingNo, editBuldingNo, totalHousehold, editEnumerator,
+    private static final String TAG = "CMainActivity"; // for logging purposes
+    String frBMainActivity, housing, building, totalHousehold, enumerator, respondent, address, timeStarted;
+    EditText editHousingNo, editBuldingNo, editTotalHousehold, editEnumerator,
             editRespondent, editAddress, editTimeStarted;
+    //    int housingNo, buildingNo, totalHouseholdNo;
+    dbHelper dbAccess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cmain);
 
-        //        Get the data sent by StartSurveyActivity
+        dbAccess = new dbHelper(this, null, null, 4);
+
+        //        Get the data sent by BMainActivity
         Intent frBMainActivityIntent = getIntent();
         frBMainActivity = frBMainActivityIntent.getExtras().getString("barangayName");
         TextView textView = (TextView) findViewById(R.id.chosen_barangay);
-        if (frBMainActivity != null) {
-            textView.append(" " + frBMainActivity);
-        }
+        textView.append(" " + frBMainActivity);
 
         editHousingNo = (EditText) findViewById(R.id.housingUnitNo);
         editBuldingNo = (EditText) findViewById(R.id.buildingNo);
-        totalHousehold = (EditText) findViewById(R.id.totalHouseholdNo);
+        editTotalHousehold = (EditText) findViewById(R.id.totalHouseholdNo);
         editEnumerator = (EditText) findViewById(R.id.enumerator);
         editRespondent = (EditText) findViewById(R.id.respondent);
         editAddress = (EditText) findViewById(R.id.address);
@@ -39,8 +41,29 @@ public class CMainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(CMainActivity.this, DMainActivity.class);
-                startActivity(intent);
+                 /*Strings for edit texts*/
+                housing = editHousingNo.getText().toString();
+                building = editBuldingNo.getText().toString();
+                totalHousehold = editTotalHousehold.getText().toString();
+                enumerator = editEnumerator.getText().toString();
+                respondent = editRespondent.getText().toString();
+                address = editAddress.getText().toString();
+                timeStarted = editTimeStarted.getText().toString();
+//                Intent intent = new Intent(CMainActivity.this, DMainActivity.class);
+//                send this strings to next activity to be inserted in database
+//                intent.putExtra("barangayName", frBMainActivity);
+//                intent.putExtra("housing", housing);
+//                intent.putExtra("building", building);
+//                intent.putExtra("totalHousehold", totalHousehold);
+//                intent.putExtra("enumerator", enumerator);
+//                intent.putExtra("respondent", respondent);
+//                intent.putExtra("address", address);
+//                intent.putExtra("timeStarted", timeStarted);
+//                startActivity(intent);
+//                Log.d(TAG, "onClick: " + housing + " " + building + " " + totalHousehold + " " + enumerator + " " + respondent + " " + address + " " + timeStarted + " end." );
+//                Person person = Person();
+//                String barangay = person.get_barangay();
+//                Log.d(TAG, "onClick: " + barangay);
             }
         });
     }

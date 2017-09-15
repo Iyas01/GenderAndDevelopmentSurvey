@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -19,14 +20,18 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 
 import java.util.ArrayList;
 
+import static com.example.android.genderanddevelopmentsurvey.R.id.timeStarted;
+
 //SwipeMenuListView is deprecated in favor of the new "RecyclerView"
 public class DMainActivity extends AppCompatActivity {
-    //    private static final String TAG = "DMainActivity"; - for logging purposes
+    private static final String TAG = "DMainActivity"; // for logging purposes
+    int housingNo, buildingNo, totalHouseholdNo;
     EditText fromUserInput;
     ArrayList<String> arrHouseholdMems = new ArrayList<>();
     SwipeMenuListView showMems;
-    String userInput;
+    String userInput, barangay, sHousing, sBuilding, sTotalHousehold, enumerator, respondent, address, sTimeStarted;
     ArrayAdapter adapter;
+    Intent DMainActivityintent;
     dbHelper dbAccess;
 
     @Override
@@ -34,8 +39,24 @@ public class DMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dmain);
 
-//        create an instance of a database connection
-        dbAccess = new dbHelper(this, null, null, 2);
+//        instance of a database connection
+        dbAccess = new dbHelper(this, null, null, 4);
+
+//        receive extra("barangayName") from CMainActivity
+        DMainActivityintent = getIntent();
+        barangay = DMainActivityintent.getExtras().getString("barangayName");
+        sHousing = DMainActivityintent.getExtras().getString("housing");
+        sBuilding = DMainActivityintent.getExtras().getString("building");
+        sTotalHousehold = DMainActivityintent.getExtras().getString("totalHousehold");
+        enumerator = DMainActivityintent.getExtras().getString("enumerator");
+        respondent = DMainActivityintent.getExtras().getString("respondent");
+        address = DMainActivityintent.getExtras().getString("address");
+        sTimeStarted = DMainActivityintent.getExtras().getString("timeStarted");
+
+//        parse integer from the "extra" Strings received
+        housingNo = Integer.parseInt(sHousing);
+        buildingNo = Integer.parseInt(sBuilding);
+        totalHouseholdNo = Integer.parseInt(sTotalHousehold);
 
 //        name the toolbar
         this.setTitle("Add Household Members");
@@ -62,9 +83,18 @@ public class DMainActivity extends AppCompatActivity {
                             arrHouseholdMems);
                     showMems.setAdapter(adapter);
                     fromUserInput.setText(userInput);
-                    Person person = new Person(userInput);
-                    dbAccess.addPerson(person);
+//                    getIntValue();
+                    Person person = new Person(userInput); // new object created
                     fromUserInput.setText("");
+                    person.set_barangay(barangay);
+                    person.set_name_of_enumerator(enumerator);
+                    person.set_name_of_respondent(respondent);
+                    person.set_address(address);
+                    person.set_time_started(sTimeStarted);
+                    person.set_housing(housingNo);
+                    person.set_bldg(buildingNo);
+                    person.set_total_household(totalHouseholdNo);
+                    dbAccess.addPerson(person); // add person to the database
                 }
             }
         });
@@ -72,10 +102,19 @@ public class DMainActivity extends AppCompatActivity {
         showMems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(DMainActivity.this, EGenderAge.class);
-//            Place the clicked household members name and send it to the next activity
-                intent.putExtra("householdMem", showMems.getItemAtPosition(position).toString());
-                startActivity(intent);
+//                DMainActivityintent = new Intent(DMainActivity.this, EGenderAge.class);
+//            Place the clicked household members name and send it to the next activity: EGenderAge
+//                DMainActivityintent.putExtra("householdMem", showMems.getItemAtPosition(position).toString());
+//                DMainActivityintent.putExtra("barangay", barangay);
+//                DMainActivityintent.putExtra("building", sBuilding);
+//                DMainActivityintent.putExtra("housing", sHousing);
+//                DMainActivityintent.putExtra("totalHousehold", sTotalHousehold);
+//                DMainActivityintent.putExtra("enumerator", enumerator);
+//                DMainActivityintent.putExtra("respondent", respondent);
+//                DMainActivityintent.putExtra("address", address);
+//                DMainActivityintent.putExtra("timeStarted", sTimeStarted);
+//                startActivity(DMainActivityintent);
+                Log.d(TAG, "onClick: " + housingNo + " " + buildingNo + " " + totalHouseholdNo + " " + enumerator + " " + respondent + " " + address + " " + timeStarted + " end.");
             }
         });
 
@@ -137,4 +176,6 @@ public class DMainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }

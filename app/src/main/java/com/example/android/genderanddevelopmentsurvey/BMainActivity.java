@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class BMainActivity extends AppCompatActivity {
-
+    String barangay;
+    //    private static final String TAG = "CBMainActivity";
     private ArrayAdapter adapter;
 
     @Override
@@ -38,10 +39,14 @@ public class BMainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//          Send the clicked item on the ListView to the next Activity
+//          Send the clicked item on the ListView to the next Activity: CMainActivity
+                barangay = listView.getItemAtPosition(position).toString();
+                Person person = new Person();
+                person.set_barangay(barangay);
                 Intent intent = new Intent(BMainActivity.this, CMainActivity.class);
-                intent.putExtra("barangayName", listView.getItemAtPosition(position).toString());
+                intent.putExtra("barangayName", barangay);
                 startActivity(intent);
+//                Log.d(TAG, "onItemClick: ");
             }
         });
         listView.setAdapter(adapter);
