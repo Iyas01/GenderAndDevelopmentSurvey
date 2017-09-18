@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class CMainActivity extends AppCompatActivity {
-    private static final String TAG = "CMainActivity"; // for logging purposes
+    //    private static final String TAG = "CMainActivity"; // for logging purposes
     String frBMainActivity, housing, building, totalHousehold, enumerator, respondent, address, timeStarted;
     EditText editHousingNo, editBuldingNo, editTotalHousehold, editEnumerator,
             editRespondent, editAddress, editTimeStarted;
@@ -49,17 +49,17 @@ public class CMainActivity extends AppCompatActivity {
                 respondent = editRespondent.getText().toString();
                 address = editAddress.getText().toString();
                 timeStarted = editTimeStarted.getText().toString();
-//                Intent intent = new Intent(CMainActivity.this, DMainActivity.class);
+                Intent intent = new Intent(CMainActivity.this, DMainActivity.class);
 //                send this strings to next activity to be inserted in database
-//                intent.putExtra("barangayName", frBMainActivity);
-//                intent.putExtra("housing", housing);
-//                intent.putExtra("building", building);
-//                intent.putExtra("totalHousehold", totalHousehold);
-//                intent.putExtra("enumerator", enumerator);
-//                intent.putExtra("respondent", respondent);
-//                intent.putExtra("address", address);
-//                intent.putExtra("timeStarted", timeStarted);
-//                startActivity(intent);
+                intent.putExtra("barangayName", frBMainActivity);
+                intent.putExtra("housing", housing);
+                intent.putExtra("building", building);
+                intent.putExtra("totalHousehold", totalHousehold);
+                intent.putExtra("enumerator", enumerator);
+                intent.putExtra("respondent", respondent);
+                intent.putExtra("address", address);
+                intent.putExtra("timeStarted", timeStarted);
+                startActivity(intent);
 //                Log.d(TAG, "onClick: " + housing + " " + building + " " + totalHousehold + " " + enumerator + " " + respondent + " " + address + " " + timeStarted + " end." );
 //                Person person = Person();
 //                String barangay = person.get_barangay();

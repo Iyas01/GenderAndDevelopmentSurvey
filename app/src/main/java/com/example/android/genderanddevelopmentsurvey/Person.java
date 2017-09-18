@@ -38,6 +38,9 @@ public class Person {
 
     //    default constructor
     public Person() {
+        this._housing = 0;
+        this._bldg = 0;
+        this._total_household = 0;
     }
 
     //    constructor for name

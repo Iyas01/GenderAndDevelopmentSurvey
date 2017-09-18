@@ -53,10 +53,16 @@ public class DMainActivity extends AppCompatActivity {
         address = DMainActivityintent.getExtras().getString("address");
         sTimeStarted = DMainActivityintent.getExtras().getString("timeStarted");
 
-//        parse integer from the "extra" Strings received
-        housingNo = Integer.parseInt(sHousing);
-        buildingNo = Integer.parseInt(sBuilding);
-        totalHouseholdNo = Integer.parseInt(sTotalHousehold);
+//        parse integer from sHousing, sBuilding, and sTotalHousehold if not null or ""
+        if (sHousing.isEmpty()) {
+            housingNo = 0;
+        } else getIntValues();
+        if (sBuilding.isEmpty()) {
+            buildingNo = 0;
+        } else getIntValues();
+        if (sTotalHousehold.isEmpty()) {
+            totalHouseholdNo = 0;
+        } else getIntValues();
 
 //        name the toolbar
         this.setTitle("Add Household Members");
@@ -175,6 +181,12 @@ public class DMainActivity extends AppCompatActivity {
                 return true;
             }
         });
+    }
+
+    public void getIntValues() {
+        housingNo = Integer.parseInt(sHousing);
+        buildingNo = Integer.parseInt(sBuilding);
+        totalHouseholdNo = Integer.parseInt(sTotalHousehold);
     }
 
 
