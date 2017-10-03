@@ -61,8 +61,6 @@ public class CMainActivity extends AppCompatActivity {
                 intent.putExtra("timeStarted", timeStarted);
                 startActivity(intent);
 //                Log.d(TAG, "onClick: " + housing + " " + building + " " + totalHousehold + " " + enumerator + " " + respondent + " " + address + " " + timeStarted + " end." );
-//                Person person = Person();
-//                String barangay = person.get_barangay();
 //                Log.d(TAG, "onClick: " + barangay);
             }
         });

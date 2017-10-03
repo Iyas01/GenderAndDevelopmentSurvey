@@ -109,7 +109,7 @@ public class dbHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_RESPONDENT, person.get_name_of_respondent());
         contentValues.put(COLUMN_TIMESTARTED, person.get_time_started());
         SQLiteDatabase db = getWritableDatabase();
-        //        db.insertOrThrow(TABLE_NAME, null, contentValues);
+//        db.insertOrThrow(TABLE_NAME, null, contentValues);
         db.insert(TABLE_NAME, null, contentValues);
         db.close();
     }
@@ -121,24 +121,40 @@ public class dbHelper extends SQLiteOpenHelper {
         db.close();
     }
 
-    //    insert other details of the person
+    //    insert a row into the table
+//    INSERT into TABLE_NAME (id, name, ...) values(1, 'Max Eisenhardt', ...);
+    public void insertRow(Person person) {
+        SQLiteDatabase db = getWritableDatabase();
+        String query = "INSERT into " + TABLE_NAME + "(" + COLUMN_NAME + ", " + COLUMN_AGE + ", " +
+                COLUMN_GENDER + ", " + COLUMN_BARANGAY + ", " + COLUMN_HOUSING + ", " +
+                COLUMN_BUILDING + ", " + COLUMN_TOTALHOUSEHOLD + ", " + COLUMN_ENUMERATOR + ", " +
+                COLUMN_RESPONDENT + ", " + COLUMN_TIMESTARTED + ") VALUES ('" + person.get_name() + "', '" +
+                person.get_age() + "', '" + person.get_gender() + "', '" + person.get_barangay() + "', '" +
+                person.get_housing() + "', '" + person.get_bldg() + "', '" + person.get_total_household() + "', '" +
+                person.get_name_of_enumerator() + "', '" + person.get_name_of_respondent() + "', '" +
+                person.get_time_started() + "');";
+        db.execSQL(query);
+
+    }
+
+    //    update other details of the person
     public void otherDetails(String name, int age, String gender, String barangay, int housing,
                              int building, int total_household, String enumerator, String respondent,
                              String address, String time_started) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("UPDATE " + TABLE_NAME + " SET " +
-                COLUMN_AGE + " = " + age + ", " +
-                COLUMN_GENDER + " = '" + gender +
-                COLUMN_BARANGAY + " = '" + barangay +
-                COLUMN_ADDRESS + " = '" + address +
-                COLUMN_HOUSING + " = '" + housing +
-                COLUMN_BUILDING + " = '" + building +
-                COLUMN_TOTALHOUSEHOLD + " = '" + total_household +
-                COLUMN_ENUMERATOR + " = '" + enumerator +
-                COLUMN_RESPONDENT + " = '" + respondent +
-                COLUMN_TIMESTARTED + " = '" + time_started +
-                "' WHERE " +
-                COLUMN_NAME + " = '" + name + "';");
+                COLUMN_AGE + " = '" + age + "', " +
+                COLUMN_GENDER + " = '" + gender + "', " +
+                COLUMN_BARANGAY + " = '" + barangay + "', " +
+                COLUMN_ADDRESS + " = '" + address + "', " +
+                COLUMN_HOUSING + " = '" + housing + "', " +
+                COLUMN_BUILDING + " = '" + building + "', " +
+                COLUMN_TOTALHOUSEHOLD + " = '" + total_household + "', " +
+                COLUMN_ENUMERATOR + " = '" + enumerator + "', " +
+                COLUMN_RESPONDENT + " = '" + respondent + "', " +
+                COLUMN_TIMESTARTED + " = '" + time_started + "' " +
+                "WHERE " +
+                COLUMN_NAME + " = " + name + ";");
         db.close();
     }
 }

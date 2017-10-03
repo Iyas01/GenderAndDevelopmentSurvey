@@ -20,11 +20,11 @@ import java.util.Calendar;
 
 public class EGenderAge extends AppCompatActivity {
 
-    private static final String TAG = "EGenderAge";
+//    private static final String TAG = "EGenderAge";
 
     String sHouseholdMember, enumerator, respondent, address;
     String sHousing, sBuilding, sTotalHousehold, timeStarted;
-    int age, rbId, housing, building, totalHousehold;
+    int age, rbId, housingNo, buildingNo, totalHouseholdNo;
     Intent iEgenderAge;
     TextView datePickerTextView;
     Calendar calendar;
@@ -42,29 +42,41 @@ public class EGenderAge extends AppCompatActivity {
         setContentView(R.layout.activity_egender_age);
 
 //        receive extra
-//        iEgenderAge = getIntent();
-//        sHouseholdMember = iEgenderAge.getExtras().getString("householdMem");
-//        barangay = iEgenderAge.getExtras().getString("barangayName");
-//        enumerator = iEgenderAge.getExtras().getString("enumerator");
-//        respondent = iEgenderAge.getExtras().getString("respondent");
-//        address = iEgenderAge.getExtras().getString("address");
-//        sHousing = iEgenderAge.getExtras().getString("housing");
-//        sBuilding = iEgenderAge.getExtras().getString("building");
-//        sTotalHousehold = iEgenderAge.getExtras().getString("totalHousehold");
-//        timeStarted = iEgenderAge.getExtras().getString("timeStarted");
-
-//        parse int from Strings sHousing, sBuilding, sTotalHousehold, sTimeStarted
-//        housing = Integer.parseInt(sHousing);
-//        building = Integer.parseInt(sBuilding);
-//        totalHousehold = Integer.parseInt(sTotalHousehold);
+        iEgenderAge = getIntent();
+        sHouseholdMember = iEgenderAge.getExtras().getString("householdMem");
+        barangay = iEgenderAge.getExtras().getString("barangayName");
+        enumerator = iEgenderAge.getExtras().getString("enumerator");
+        respondent = iEgenderAge.getExtras().getString("respondent");
+        address = iEgenderAge.getExtras().getString("address");
+        sHousing = iEgenderAge.getExtras().getString("housing");
+        sBuilding = iEgenderAge.getExtras().getString("building");
+        sTotalHousehold = iEgenderAge.getExtras().getString("totalHousehold");
+        timeStarted = iEgenderAge.getExtras().getString("timeStarted");
 
 //        set title
         this.setTitle(sHouseholdMember + "'s Gender and Age");
 
+        person = new Person(sHouseholdMember);
+
+//        parse int from Strings sHousing, sBuilding, sTotalHousehold, sTimeStarted
+        if (sHousing.isEmpty()) {
+            housingNo = 0;
+        } else {
+            housingNo = Integer.parseInt(sHousing);
+        }
+        if (sBuilding.isEmpty()) {
+            buildingNo = 0;
+        } else {
+            buildingNo = Integer.parseInt(sBuilding);
+        }
+        if (sTotalHousehold.isEmpty()) {
+            totalHouseholdNo = 0;
+        } else {
+            totalHouseholdNo = Integer.parseInt(sTotalHousehold);
+        }
+
 //        create a new instance of database connection
         dbAccess = new dbHelper(this, null, null, 4);
-
-        Button Btn_next = (Button) findViewById(R.id.Btn_next);
 
 //        Fetch household members gender from user input
         rg_genderSel = (RadioGroup) findViewById(R.id.rg_genderSel);
@@ -77,8 +89,6 @@ public class EGenderAge extends AppCompatActivity {
             }
         });
 
-//        set the persons gender
-        person.set_gender(gender);
 
 //        Date of Birth and Age Computation
         datePickerTextView = (TextView) findViewById(R.id.datePickerTextView);
@@ -118,17 +128,16 @@ public class EGenderAge extends AppCompatActivity {
             }
         };
 
-//        set Person's age
-        person.set_age(age);
-
 //        Send householdMembers name and open next activity
+        Button Btn_next = (Button) findViewById(R.id.Btn_next);
         Btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                dbAccess.otherDetails(person.get_name(), person.get_age(), person.get_gender(), person.get_barangay(), person.get_housing(), person.get_bldg(),
-//                        person.get_total_household(), person.get_name_of_enumerator(), person.get_name_of_respondent(), person.get_address(), person.get_time_started()); // insert other details of the person to the database
+                personObject();
+//                dbAccess.otherDetails(person1.get_name(), person1.get_age(), person1.get_gender(), person1.get_barangay(), person1.get_housing(), person1.get_bldg(),
+//                        person1.get_total_household(), person1.get_name_of_enumerator(), person1.get_name_of_respondent(), person1.get_address(), person1.get_time_started()); // insert other details of the person to the database
                 iEgenderAge = new Intent(EGenderAge.this, Category.class); // call the next activity
-//                iEgenderAge.putExtra("householdMem", sHouseholdMember);
+                iEgenderAge.putExtra("householdMem", sHouseholdMember);
                 startActivity(iEgenderAge);
 //              logging to console
 //                Log.d(TAG, "onClick: " + sHouseholdMember + " " + age + " " + gender);
@@ -136,4 +145,27 @@ public class EGenderAge extends AppCompatActivity {
             }
         });
     }
+
+    public void personObject() {
+        person.set_name(sHouseholdMember);
+        person.set_age(age);
+        person.set_gender(gender);
+        person.set_address(address);
+        person.set_barangay(barangay);
+        person.set_housing(housingNo);
+        person.set_bldg(buildingNo);
+        person.set_total_household(totalHouseholdNo);
+        person.set_name_of_enumerator(enumerator);
+        person.set_name_of_respondent(respondent);
+        person.set_time_started(timeStarted);
+        dbAccess.addPerson(person); // add person to the database
+//        dbAccess.insertRow(person);
+    }
+
+//    public void getIntValues() {
+//        housingNo = Integer.parseInt(sHousing);
+//        buildingNo = Integer.parseInt(sBuilding);
+//        totalHouseholdNo = Integer.parseInt(sTotalHousehold);
+//    }
+
 }

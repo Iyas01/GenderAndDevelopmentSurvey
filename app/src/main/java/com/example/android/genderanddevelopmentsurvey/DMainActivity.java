@@ -5,7 +5,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,12 +19,9 @@ import com.baoyz.swipemenulistview.SwipeMenuListView;
 
 import java.util.ArrayList;
 
-import static com.example.android.genderanddevelopmentsurvey.R.id.timeStarted;
-
 //SwipeMenuListView is deprecated in favor of the new "RecyclerView"
 public class DMainActivity extends AppCompatActivity {
-    private static final String TAG = "DMainActivity"; // for logging purposes
-    int housingNo, buildingNo, totalHouseholdNo;
+    //    private static final String TAG = "DMainActivity"; // for logging purposes
     EditText fromUserInput;
     ArrayList<String> arrHouseholdMems = new ArrayList<>();
     SwipeMenuListView showMems;
@@ -53,17 +49,6 @@ public class DMainActivity extends AppCompatActivity {
         address = DMainActivityintent.getExtras().getString("address");
         sTimeStarted = DMainActivityintent.getExtras().getString("timeStarted");
 
-//        parse integer from sHousing, sBuilding, and sTotalHousehold if not null or ""
-        if (sHousing.isEmpty()) {
-            housingNo = 0;
-        } else getIntValues();
-        if (sBuilding.isEmpty()) {
-            buildingNo = 0;
-        } else getIntValues();
-        if (sTotalHousehold.isEmpty()) {
-            totalHouseholdNo = 0;
-        } else getIntValues();
-
 //        name the toolbar
         this.setTitle("Add Household Members");
 
@@ -80,7 +65,7 @@ public class DMainActivity extends AppCompatActivity {
                 if (arrHouseholdMems.contains(userInput)) {
                     Toast.makeText(getBaseContext(), "The household member is already added to the list, please check",
                             Toast.LENGTH_SHORT).show();
-                } else if (userInput == null | userInput.trim().equals("")) {
+                } else if (userInput.isEmpty() | userInput.trim().equals("")) {
                     Toast.makeText(getBaseContext(), "Please provide a valid household member name",
                             Toast.LENGTH_SHORT).show();
                 } else {
@@ -89,18 +74,7 @@ public class DMainActivity extends AppCompatActivity {
                             arrHouseholdMems);
                     showMems.setAdapter(adapter);
                     fromUserInput.setText(userInput);
-//                    getIntValue();
-                    Person person = new Person(userInput); // new object created
                     fromUserInput.setText("");
-                    person.set_barangay(barangay);
-                    person.set_name_of_enumerator(enumerator);
-                    person.set_name_of_respondent(respondent);
-                    person.set_address(address);
-                    person.set_time_started(sTimeStarted);
-                    person.set_housing(housingNo);
-                    person.set_bldg(buildingNo);
-                    person.set_total_household(totalHouseholdNo);
-                    dbAccess.addPerson(person); // add person to the database
                 }
             }
         });
@@ -108,19 +82,19 @@ public class DMainActivity extends AppCompatActivity {
         showMems.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                DMainActivityintent = new Intent(DMainActivity.this, EGenderAge.class);
+                DMainActivityintent = new Intent(DMainActivity.this, EGenderAge.class);
 //            Place the clicked household members name and send it to the next activity: EGenderAge
-//                DMainActivityintent.putExtra("householdMem", showMems.getItemAtPosition(position).toString());
-//                DMainActivityintent.putExtra("barangay", barangay);
-//                DMainActivityintent.putExtra("building", sBuilding);
-//                DMainActivityintent.putExtra("housing", sHousing);
-//                DMainActivityintent.putExtra("totalHousehold", sTotalHousehold);
-//                DMainActivityintent.putExtra("enumerator", enumerator);
-//                DMainActivityintent.putExtra("respondent", respondent);
-//                DMainActivityintent.putExtra("address", address);
-//                DMainActivityintent.putExtra("timeStarted", sTimeStarted);
-//                startActivity(DMainActivityintent);
-                Log.d(TAG, "onClick: " + housingNo + " " + buildingNo + " " + totalHouseholdNo + " " + enumerator + " " + respondent + " " + address + " " + timeStarted + " end.");
+                DMainActivityintent.putExtra("householdMem", showMems.getItemAtPosition(position).toString());
+                DMainActivityintent.putExtra("barangayName", barangay);
+                DMainActivityintent.putExtra("building", sBuilding);
+                DMainActivityintent.putExtra("housing", sHousing);
+                DMainActivityintent.putExtra("totalHousehold", sTotalHousehold);
+                DMainActivityintent.putExtra("enumerator", enumerator);
+                DMainActivityintent.putExtra("respondent", respondent);
+                DMainActivityintent.putExtra("address", address);
+                DMainActivityintent.putExtra("timeStarted", sTimeStarted);
+                startActivity(DMainActivityintent);
+//                Log.d(TAG, "onClick: " + housingNo + " " + buildingNo + " " + totalHouseholdNo + " " + enumerator + " " + respondent + " " + address + " " + timeStarted + " end.");
             }
         });
 
@@ -182,12 +156,4 @@ public class DMainActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void getIntValues() {
-        housingNo = Integer.parseInt(sHousing);
-        buildingNo = Integer.parseInt(sBuilding);
-        totalHouseholdNo = Integer.parseInt(sTotalHousehold);
-    }
-
-
 }

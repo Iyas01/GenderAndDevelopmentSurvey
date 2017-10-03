@@ -26,10 +26,10 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        //        Receive data from DMainActivity: Data to send: clicked household members name
+//        Receive data from DMainActivity: Data to send: clicked household members name
         nextActivity = getIntent();
         sHouseholdMember = nextActivity.getExtras().getString("householdMem");
-        getsHouseholdMembersAge = nextActivity.getExtras().getString("Age");
+//        getsHouseholdMembersAge = nextActivity.getExtras().getString("Age");
 
 //        name the toolbar
         this.setTitle("Category: " + sHouseholdMember);

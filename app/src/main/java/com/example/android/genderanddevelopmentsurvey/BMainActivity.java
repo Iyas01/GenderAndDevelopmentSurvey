@@ -41,8 +41,6 @@ public class BMainActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //          Send the clicked item on the ListView to the next Activity: CMainActivity
                 barangay = listView.getItemAtPosition(position).toString();
-                Person person = new Person();
-                person.set_barangay(barangay);
                 Intent intent = new Intent(BMainActivity.this, CMainActivity.class);
                 intent.putExtra("barangayName", barangay);
                 startActivity(intent);
