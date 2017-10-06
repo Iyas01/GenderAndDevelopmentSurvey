@@ -28,13 +28,14 @@
         android:textSize="20sp" />
 
     <RadioGroup
+        android:id="@+id/rg_relation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rbYes"
+            android:id="@+id/rb_yes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="40dp"
@@ -42,7 +43,7 @@
             android:text="YES" />
 
         <RadioButton
-            android:id="@+id/rbNo"
+            android:id="@+id/rb_no"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

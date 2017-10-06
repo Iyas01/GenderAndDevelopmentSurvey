@@ -18,10 +18,11 @@ public class Person {
     private String _address;
     private String _time_started;
     private String _relation;
+    private String _registered_birth;
     private String _marital_status;
     private String _religious_affiliation;
 
-    private boolean _registered_birth;
+
     private boolean _indigenous_tribe;
     private char _date_of_birth;
 
@@ -74,10 +75,6 @@ public class Person {
     public void set_gender(String gender) {
         this._gender = gender;
     }   //    setter for gender
-
-    public void set_relation(String _relation) {
-        this._relation = _relation;
-    }
 
     public int get_age() {
         return _age;
@@ -159,10 +156,6 @@ public class Person {
         this._religious_affiliation = _religious_affiliation;
     } // setter for religious affiliation
 
-    public void set_registered_birth(boolean _registered_birth) {
-        this._registered_birth = _registered_birth;
-    } // setter for birth registration
-
     public void set_indigenous_tribe(boolean _indigenous_tribe) {
         this._indigenous_tribe = _indigenous_tribe;
     } // setter for indigenous tribe
@@ -190,4 +183,20 @@ public class Person {
     public void set_attending_school(boolean _attending_school) {
         this._attending_school = _attending_school;
     } // setter for if attending school
+
+    public String get_relation() {
+        return _relation;
+    }
+
+    public void set_relation(String _relation) {
+        this._relation = _relation;
+    }
+
+    public String get_registered_birth() {
+        return _registered_birth;
+    }
+
+    public void set_registered_birth(String _registered_birth) {
+        this._registered_birth = _registered_birth;
+    } // setter for birth registration
 }

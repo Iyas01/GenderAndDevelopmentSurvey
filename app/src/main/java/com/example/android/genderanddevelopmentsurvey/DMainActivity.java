@@ -35,9 +35,6 @@ public class DMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dmain);
 
-//        instance of a database connection
-        dbAccess = new dbHelper(this, null, null, 4);
-
 //        receive extra("barangayName") from CMainActivity
         DMainActivityintent = getIntent();
         barangay = DMainActivityintent.getExtras().getString("barangayName");

@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     private static final String DATABASE_NAME = "gad.db";
     private static final String TABLE_NAME = "records";
     private static final String COLUMN_ID = "_id";
@@ -48,13 +48,13 @@ public class dbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_JOB_POSITION = "Job_Position";
     private static final String COLUMN_DISABILITY = "Disability";
     private static final String COLUMN_DISABILITY_TYPE = "Disability_Type";
-    private static final String COLUMN_HYPERTENSIOND = "Hypertension";
+    private static final String COLUMN_HYPERTENSION = "Hypertension";
     private static final String COLUMN_DIABETES = "Diabetes";
     private static final String COLUMN_PREGNANT = "Pregnant";
     private static final String COLUMN_DWELLINGS = "Dwellings";
     private static final String COLUMN_HOUSING_MATERIALS = "Housing_Materials";
     private static final String COLUMN_HOUSE_TYPE = "House_Type";
-    private static final String COLUMN_USE_OF_STRUCTURE = "Use of Structure";
+    private static final String COLUMN_USE_OF_STRUCTURE = "Use_of_Structure";
     private static final String COLUMN_TOILET_TYPE = "Toilet_Type";
     private static final String COLUMN_WATER_SOURCE = "Water_Source";
     private static final String COLUMN_LIGHTING_SYSTEM = "Lighting_System";
@@ -64,15 +64,15 @@ public class dbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_APPLIANCES = "Appliances";
     private static final String COLUMN_PROPERTIES = "Properties";
 
-    public dbHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DATABASE_NAME, factory, DATABASE_VERSION);
+    public dbHelper(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String query = "CREATE TABLE '" + TABLE_NAME + "' ('" +
+        String query = "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " ('" +
                 COLUMN_ID + "' INTEGER PRIMARY KEY AUTOINCREMENT, '" +
-                COLUMN_NAME + "' TEXT, '" +
+                COLUMN_NAME + "' TEXT NOT NULL, '" +
                 COLUMN_AGE + "' INTEGER, '" +
                 COLUMN_GENDER + "' TEXT, '" +
                 COLUMN_BARANGAY + "' TEXT, '" +
@@ -82,9 +82,48 @@ public class dbHelper extends SQLiteOpenHelper {
                 COLUMN_TOTALHOUSEHOLD + "' INTEGER, '" +
                 COLUMN_ENUMERATOR + "' TEXT, '" +
                 COLUMN_RESPONDENT + "' TEXT, '" +
-                COLUMN_TIMESTARTED + "' TEXT " +
-
-                ");";
+                COLUMN_TIMESTARTED + "' TEXT, '" +
+                COLUMN_RELATION + "' TEXT, '" +
+                COLUMN_BIRTH_REGISTRATION + "' TEXT, '" +
+                COLUMN_MARITAL_STATUS + "' TEXT, '" +
+                COLUMN_RELIGION + "' TEXT, '" +
+                COLUMN_TRIBE + "' TEXT, '" +
+                COLUMN_LITERACY + "' TEXT, '" +
+                COLUMN_EDUCATION + "' TEXT, '" +
+                COLUMN_ATTENDING_SCHOOL + "' TEXT, '" +
+                COLUMN_REGISTERED_VOTER + "' TEXT, '" +
+                COLUMN_JOB + "' TEXT, '" +
+                COLUMN_INDUSTRY_TYPE + "' TEXT, '" +
+                COLUMN_WORKING_HOURS + "' TEXT, '" +
+                COLUMN_EMPLOYMENT_STATUS + "' TEXT, '" +
+                COLUMN_BUSINESS + "' TEXT, '" +
+                COLUMN_INCOME_SOURCE + "' TEXT, '" +
+                COLUMN_MONTHLY_INCOME + "' TEXT, '" +
+                COLUMN_MONTHLY_EXPENSES + "' TEXT, '" +
+                COLUMN_SSS + "' TEXT, '" +
+                COLUMN_PAGIBIG + "' TEXT, '" +
+                COLUMN_GSIS + "' TEXT, '" +
+                COLUMN_JOB_SEARCH + "' TEXT, '" +
+                COLUMN_JOB_LOCATION + "' TEXT, '" +
+                COLUMN_JOB_POSITION + "' TEXT, '" +
+                COLUMN_DISABILITY + "' TEXT, '" +
+                COLUMN_DISABILITY_TYPE + "' TEXT, '" +
+                COLUMN_HYPERTENSION + "' TEXT, '" +
+                COLUMN_DIABETES + "' TEXT, '" +
+                COLUMN_PREGNANT + "' TEXT, '" +
+                COLUMN_DWELLINGS + "' TEXT, '" +
+                COLUMN_HOUSING_MATERIALS + "' TEXT, '" +
+                COLUMN_HOUSE_TYPE + "' TEXT, '" +
+                COLUMN_USE_OF_STRUCTURE + "' TEXT, '" +
+                COLUMN_TOILET_TYPE + "' TEXT, '" +
+                COLUMN_WATER_SOURCE + "' TEXT, '" +
+                COLUMN_LIGHTING_SYSTEM + "' TEXT, '" +
+                COLUMN_DRAINAGE_SYSTEM + "' TEXT, '" +
+                COLUMN_SEPTIC_TANK + "' TEXT, '" +
+                COLUMN_SEPTIC_TANK_ACCESS + "' TEXT, '" +
+                COLUMN_APPLIANCES + "' TEXT, '" +
+                COLUMN_PROPERTIES + "' TEXT " +
+                ")";
         db.execSQL(query);
     }
 
@@ -108,6 +147,8 @@ public class dbHelper extends SQLiteOpenHelper {
         contentValues.put(COLUMN_ENUMERATOR, person.get_name_of_enumerator());
         contentValues.put(COLUMN_RESPONDENT, person.get_name_of_respondent());
         contentValues.put(COLUMN_TIMESTARTED, person.get_time_started());
+//        contentValues.put(COLUMN_RELATION, person.get_relation());
+//        contentValues.put(COLUMN_BIRTH_REGISTRATION, person.get_registered_birth());
         SQLiteDatabase db = getWritableDatabase();
 //        db.insertOrThrow(TABLE_NAME, null, contentValues);
         db.insert(TABLE_NAME, null, contentValues);
@@ -123,38 +164,27 @@ public class dbHelper extends SQLiteOpenHelper {
 
     //    insert a row into the table
 //    INSERT into TABLE_NAME (id, name, ...) values(1, 'Max Eisenhardt', ...);
-    public void insertRow(Person person) {
-        SQLiteDatabase db = getWritableDatabase();
-        String query = "INSERT into " + TABLE_NAME + "(" + COLUMN_NAME + ", " + COLUMN_AGE + ", " +
-                COLUMN_GENDER + ", " + COLUMN_BARANGAY + ", " + COLUMN_HOUSING + ", " +
-                COLUMN_BUILDING + ", " + COLUMN_TOTALHOUSEHOLD + ", " + COLUMN_ENUMERATOR + ", " +
-                COLUMN_RESPONDENT + ", " + COLUMN_TIMESTARTED + ") VALUES ('" + person.get_name() + "', '" +
-                person.get_age() + "', '" + person.get_gender() + "', '" + person.get_barangay() + "', '" +
-                person.get_housing() + "', '" + person.get_bldg() + "', '" + person.get_total_household() + "', '" +
-                person.get_name_of_enumerator() + "', '" + person.get_name_of_respondent() + "', '" +
-                person.get_time_started() + "');";
-        db.execSQL(query);
+//    public void insertRow(Person person) {
+//        SQLiteDatabase db = getWritableDatabase();
+//        String query = "INSERT into " + TABLE_NAME + "(" + COLUMN_NAME + ", " + COLUMN_AGE + ", " +
+//                COLUMN_GENDER + ", " + COLUMN_BARANGAY + ", " + COLUMN_HOUSING + ", " +
+//                COLUMN_BUILDING + ", " + COLUMN_TOTALHOUSEHOLD + ", " + COLUMN_ENUMERATOR + ", " +
+//                COLUMN_RESPONDENT + ", " + COLUMN_TIMESTARTED + ") VALUES ('" + person.get_name() + "', '" +
+//                person.get_age() + "', '" + person.get_gender() + "', '" + person.get_barangay() + "', '" +
+//                person.get_housing() + "', '" + person.get_bldg() + "', '" + person.get_total_household() + "', '" +
+//                person.get_name_of_enumerator() + "', '" + person.get_name_of_respondent() + "', '" +
+//                person.get_time_started() + "');";
+//        db.execSQL(query);
+//      }
 
-    }
-
-    //    update other details of the person
-    public void otherDetails(String name, int age, String gender, String barangay, int housing,
-                             int building, int total_household, String enumerator, String respondent,
-                             String address, String time_started) {
+    //    @param name: name of household member, @param value1: relation to the head of the household, @param value2: if birth is registered
+    public void updateOne(String name, String value1, String value2) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("UPDATE " + TABLE_NAME + " SET " +
-                COLUMN_AGE + " = '" + age + "', " +
-                COLUMN_GENDER + " = '" + gender + "', " +
-                COLUMN_BARANGAY + " = '" + barangay + "', " +
-                COLUMN_ADDRESS + " = '" + address + "', " +
-                COLUMN_HOUSING + " = '" + housing + "', " +
-                COLUMN_BUILDING + " = '" + building + "', " +
-                COLUMN_TOTALHOUSEHOLD + " = '" + total_household + "', " +
-                COLUMN_ENUMERATOR + " = '" + enumerator + "', " +
-                COLUMN_RESPONDENT + " = '" + respondent + "', " +
-                COLUMN_TIMESTARTED + " = '" + time_started + "' " +
+        db.execSQL("UPDATE " + TABLE_NAME + " SET '" +
+                COLUMN_RELATION + "' = '" + value1 + "', " +
+                COLUMN_BIRTH_REGISTRATION + " = '" + value2 + "' " +
                 "WHERE " +
-                COLUMN_NAME + " = " + name + ";");
+                COLUMN_NAME + " = '" + name + "';");
         db.close();
     }
 }

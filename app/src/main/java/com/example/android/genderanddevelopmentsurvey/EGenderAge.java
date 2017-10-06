@@ -76,7 +76,7 @@ public class EGenderAge extends AppCompatActivity {
         }
 
 //        create a new instance of database connection
-        dbAccess = new dbHelper(this, null, null, 4);
+        dbAccess = new dbHelper(this);
 
 //        Fetch household members gender from user input
         rg_genderSel = (RadioGroup) findViewById(R.id.rg_genderSel);

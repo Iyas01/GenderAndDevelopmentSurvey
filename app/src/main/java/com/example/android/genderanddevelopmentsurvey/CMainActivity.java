@@ -14,14 +14,11 @@ public class CMainActivity extends AppCompatActivity {
     EditText editHousingNo, editBuldingNo, editTotalHousehold, editEnumerator,
             editRespondent, editAddress, editTimeStarted;
     //    int housingNo, buildingNo, totalHouseholdNo;
-    dbHelper dbAccess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cmain);
-
-        dbAccess = new dbHelper(this, null, null, 4);
 
         //        Get the data sent by BMainActivity
         Intent frBMainActivityIntent = getIntent();
