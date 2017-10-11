@@ -138,10 +138,12 @@ public class EGenderAge extends AppCompatActivity {
 //                        person1.get_total_household(), person1.get_name_of_enumerator(), person1.get_name_of_respondent(), person1.get_address(), person1.get_time_started()); // insert other details of the person to the database
                 iEgenderAge = new Intent(EGenderAge.this, Category.class); // call the next activity
                 iEgenderAge.putExtra("householdMem", sHouseholdMember);
-                startActivity(iEgenderAge);
+                iEgenderAge.putExtra("Age", String.valueOf(age));
 //              logging to console
-//                Log.d(TAG, "onClick: " + sHouseholdMember + " " + age + " " + gender);
-//                iEgenderAge.putExtra("Age", getHouseholdMembersAge);
+//                Log.d(TAG, "onClick: " + sHouseholdMember + " " + String.valueOf(age) + " " + gender);
+                startActivity(iEgenderAge);
+
+
             }
         });
     }

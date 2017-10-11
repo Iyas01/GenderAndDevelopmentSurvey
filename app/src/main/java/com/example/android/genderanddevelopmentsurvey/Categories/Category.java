@@ -18,9 +18,12 @@ import com.example.android.genderanddevelopmentsurvey.R;
 
 public class Category extends AppCompatActivity implements View.OnClickListener {
 
+//    private static final String TAG = "Category";
+
     String sHouseholdMember;
     Intent nextActivity;
-    String getsHouseholdMembersAge;
+    String householdMembersAge;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +32,7 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
 //        Receive data from DMainActivity: Data to send: clicked household members name
         nextActivity = getIntent();
         sHouseholdMember = nextActivity.getExtras().getString("householdMem");
-//        getsHouseholdMembersAge = nextActivity.getExtras().getString("Age");
+        householdMembersAge = nextActivity.getExtras().getString("Age");
 
 //        name the toolbar
         this.setTitle("Category: " + sHouseholdMember);
@@ -65,8 +68,9 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
             case R.id.edalBtn:
                 nextActivity = new Intent(Category.this, EducationAndLiteracyOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
+//                Log.d(TAG, "Name: " + sHouseholdMember + " Age: " + householdMembersAge);
                 nextActivity.putExtra("householdMem", sHouseholdMember);
-                nextActivity.putExtra("Age", getsHouseholdMembersAge);
+                nextActivity.putExtra("Age", householdMembersAge);
                 startActivity(nextActivity);
                 break;
             case R.id.partiBtn:

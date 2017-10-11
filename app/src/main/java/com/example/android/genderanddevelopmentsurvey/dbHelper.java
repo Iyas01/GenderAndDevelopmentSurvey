@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     private static final String DATABASE_NAME = "gad.db";
     private static final String TABLE_NAME = "records";
     private static final String COLUMN_ID = "_id";
@@ -31,6 +31,8 @@ public class dbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_LITERACY = "Literacy";
     private static final String COLUMN_EDUCATION = "Education";
     private static final String COLUMN_ATTENDING_SCHOOL = "Attending_School";
+    private static final String COLUMN_PRIVATE_PUBLIC = "Private_or_Public";
+    private static final String COLUMN_NOT_IN_SCHOOL = "Reason_not_in_School";
     private static final String COLUMN_REGISTERED_VOTER = "Registered_Voter";
     private static final String COLUMN_JOB = "Job";
     private static final String COLUMN_INDUSTRY_TYPE = "Industry_Type";
@@ -91,6 +93,8 @@ public class dbHelper extends SQLiteOpenHelper {
                 COLUMN_LITERACY + "' TEXT, '" +
                 COLUMN_EDUCATION + "' TEXT, '" +
                 COLUMN_ATTENDING_SCHOOL + "' TEXT, '" +
+                COLUMN_PRIVATE_PUBLIC + "' TEXT, '" +
+                COLUMN_NOT_IN_SCHOOL + "' TEXT, '" +
                 COLUMN_REGISTERED_VOTER + "' TEXT, '" +
                 COLUMN_JOB + "' TEXT, '" +
                 COLUMN_INDUSTRY_TYPE + "' TEXT, '" +
@@ -178,13 +182,38 @@ public class dbHelper extends SQLiteOpenHelper {
 //      }
 
     //    @param name: name of household member, @param value1: relation to the head of the household, @param value2: if birth is registered
-    public void updateOne(String name, String value1, String value2) {
+    public void updateDemOne(String name, String value1, String value2) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("UPDATE " + TABLE_NAME + " SET '" +
                 COLUMN_RELATION + "' = '" + value1 + "', " +
                 COLUMN_BIRTH_REGISTRATION + " = '" + value2 + "' " +
                 "WHERE " +
                 COLUMN_NAME + " = '" + name + "';");
+        db.close();
+    }
+
+    public void updateDemTwo(String householdMember, String sCivilStatus, String sReligiousAff, String sIndigenous) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE " + TABLE_NAME + " SET " +
+                COLUMN_MARITAL_STATUS + " = '" + sCivilStatus + "', " +
+                COLUMN_RELIGION + " = '" + sReligiousAff + "', " +
+                COLUMN_TRIBE + " = '" + sIndigenous + "' " +
+                "WHERE " +
+                COLUMN_NAME + " = '" + householdMember + "';");
+        db.close();
+    }
+
+    public void updateEduOne(String householdMember, String literacy, String education, String attending_school,
+                             String private_or_public, String not_in_school) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE " + TABLE_NAME + " SET " +
+                COLUMN_LITERACY + " = '" + literacy + "', " +
+                COLUMN_EDUCATION + " = '" + education + "', " +
+                COLUMN_ATTENDING_SCHOOL + " = '" + attending_school + "', " +
+                COLUMN_PRIVATE_PUBLIC + " = '" + private_or_public + "', " +
+                COLUMN_NOT_IN_SCHOOL + " = '" + not_in_school + "' " +
+                "WHERE " +
+                COLUMN_NAME + " = '" + householdMember + "';");
         db.close();
     }
 }

@@ -18,7 +18,7 @@ import com.example.android.genderanddevelopmentsurvey.dbHelper;
 
 public class DemographyOne extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String householdMember;
-    String getHouseholdMembersAge;
+    //    String getHouseholdMembersAge;
     Intent frCategoryActivityIntent;
     dbHelper dbAccess;
     String rg_result;
@@ -31,8 +31,6 @@ public class DemographyOne extends AppCompatActivity implements AdapterView.OnIt
 
         Button BtnDem2 = (Button) findViewById(R.id.BtnDemOne);
         RadioGroup rg_relation = (RadioGroup) findViewById(R.id.rg_relation);
-//        RadioButton rb_yes = (RadioButton) findViewById(R.id.rb_yes);
-//        RadioButton rb_no = (RadioButton) findViewById(R.id.rb_no);
 
 
 //        Get Data, data expected from CategoryActivity: clicked household members name
@@ -52,7 +50,7 @@ public class DemographyOne extends AppCompatActivity implements AdapterView.OnIt
         demQTwoSpinner.setAdapter(demQTwoArrAdp);
         demQTwoSpinner.setOnItemSelectedListener(this);
 
-        int checkedRbId = rg_relation.getCheckedRadioButtonId();
+//        int checkedRbId = rg_relation.getCheckedRadioButtonId();
         rg_relation.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
@@ -68,10 +66,10 @@ public class DemographyOne extends AppCompatActivity implements AdapterView.OnIt
         BtnDem2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbAccess.updateOne(householdMember, selectedRel, rg_result);
+                dbAccess.updateDemOne(householdMember, selectedRel, rg_result);
                 frCategoryActivityIntent = new Intent(DemographyOne.this, DemographyTwo.class);
                 frCategoryActivityIntent.putExtra("householdMem", householdMember);
-                frCategoryActivityIntent.putExtra("Age", getHouseholdMembersAge);
+//                frCategoryActivityIntent.putExtra("Age", getHouseholdMembersAge);
                 startActivity(frCategoryActivityIntent);
             }
         });
