@@ -3,6 +3,7 @@ package com.example.android.genderanddevelopmentsurvey.Categories;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,7 +19,7 @@ import com.example.android.genderanddevelopmentsurvey.R;
 
 public class Category extends AppCompatActivity implements View.OnClickListener {
 
-//    private static final String TAG = "Category";
+    private static final String TAG = "Category";
 
     String sHouseholdMember;
     Intent nextActivity;
@@ -63,12 +64,13 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
                 nextActivity = new Intent(Category.this, DemographyOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
                 nextActivity.putExtra("householdMem", sHouseholdMember);
+                nextActivity.putExtra("Age", householdMembersAge);
                 startActivity(nextActivity);
                 break;
             case R.id.edalBtn:
                 nextActivity = new Intent(Category.this, EducationAndLiteracyOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
-//                Log.d(TAG, "Name: " + sHouseholdMember + " Age: " + householdMembersAge);
+                Log.d(TAG, "Name: " + sHouseholdMember + " Age: " + householdMembersAge);
                 nextActivity.putExtra("householdMem", sHouseholdMember);
                 nextActivity.putExtra("Age", householdMembersAge);
                 startActivity(nextActivity);
@@ -77,6 +79,7 @@ public class Category extends AppCompatActivity implements View.OnClickListener 
                 nextActivity = new Intent(Category.this, ParticipationOne.class);
 //        Pass variable-String frDMainActivity to CategoryActivity Sub-Category(ex. DemographyActivity, etc.)
                 nextActivity.putExtra("householdMem", sHouseholdMember);
+                nextActivity.putExtra("Age", householdMembersAge);
                 startActivity(nextActivity);
                 break;
             case R.id.econoBtn:

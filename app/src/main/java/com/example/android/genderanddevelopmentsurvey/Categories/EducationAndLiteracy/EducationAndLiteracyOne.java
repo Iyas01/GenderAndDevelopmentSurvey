@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,7 +19,7 @@ import com.example.android.genderanddevelopmentsurvey.dbHelper;
 
 public class EducationAndLiteracyOne extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-//    private static final String TAG = "EducationAndLiteracy";
+    private static final String TAG = "EducationAndLiteracy";
 
     String householdMember, sEducation, sLiteracy, sAttendingSchool, sPrivatePublic, sNoSchool, sFifteenPlus, householdMembersAge;
     Intent frAnotherActivity;
@@ -147,11 +148,14 @@ public class EducationAndLiteracyOne extends AppCompatActivity implements Adapte
         if (intHouseholdMembersAge >= 15) {
             Intent i = new Intent(EducationAndLiteracyOne.this, educationAndLiteracyTwo.class);
             i.putExtra("householdMem", householdMember);
+            i.putExtra("Age", householdMembersAge);
+            Log.d(TAG, "household members age: " + intHouseholdMembersAge);
             startActivity(i);
         } else {
             Intent i = new Intent(EducationAndLiteracyOne.this, Category.class);
             i.putExtra("householdMem", householdMember);
             i.putExtra("Age", householdMembersAge);
+            Log.d(TAG, "household members age: " + intHouseholdMembersAge);
             startActivity(i);
         }
 
@@ -161,6 +165,7 @@ public class EducationAndLiteracyOne extends AppCompatActivity implements Adapte
 //                " Is he/she attending school? " + sAttendingSchool +
 //                " Is it public or private school? " + sPrivatePublic);
 //        dbAccess.updateEduOne(householdMember, sLiteracy, sEducation, sAttendingSchool, sPrivatePublic, sNoSchool);
+
     }
 
     @Override

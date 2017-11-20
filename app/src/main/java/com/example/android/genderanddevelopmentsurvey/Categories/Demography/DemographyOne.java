@@ -18,7 +18,7 @@ import com.example.android.genderanddevelopmentsurvey.dbHelper;
 
 public class DemographyOne extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String householdMember;
-    //    String getHouseholdMembersAge;
+    String householdMembersAge;
     Intent frCategoryActivityIntent;
     dbHelper dbAccess;
     String rg_result;
@@ -36,6 +36,7 @@ public class DemographyOne extends AppCompatActivity implements AdapterView.OnIt
 //        Get Data, data expected from CategoryActivity: clicked household members name
         frCategoryActivityIntent = getIntent();
         householdMember = frCategoryActivityIntent.getExtras().getString("householdMem");
+        householdMembersAge = frCategoryActivityIntent.getExtras().getString("Age");
 
 //        Change the name of the toolbar to the name of the household member
         this.setTitle("Demography: " + householdMember);
@@ -69,7 +70,7 @@ public class DemographyOne extends AppCompatActivity implements AdapterView.OnIt
                 dbAccess.updateDemOne(householdMember, selectedRel, rg_result);
                 frCategoryActivityIntent = new Intent(DemographyOne.this, DemographyTwo.class);
                 frCategoryActivityIntent.putExtra("householdMem", householdMember);
-//                frCategoryActivityIntent.putExtra("Age", getHouseholdMembersAge);
+                frCategoryActivityIntent.putExtra("Age", householdMembersAge);
                 startActivity(frCategoryActivityIntent);
             }
         });
@@ -85,6 +86,4 @@ public class DemographyOne extends AppCompatActivity implements AdapterView.OnIt
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-
-//    TODO: Use the age stored in the database to test if it's more than 15, if it is additional questions(EducationAndLiteratureTwo) will be presented
 }

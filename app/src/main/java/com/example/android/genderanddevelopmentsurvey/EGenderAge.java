@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -20,7 +21,7 @@ import java.util.Calendar;
 
 public class EGenderAge extends AppCompatActivity {
 
-//    private static final String TAG = "EGenderAge";
+    private static final String TAG = "EGenderAge";
 
     String sHouseholdMember, enumerator, respondent, address;
     String sHousing, sBuilding, sTotalHousehold, timeStarted;
@@ -116,6 +117,7 @@ public class EGenderAge extends AppCompatActivity {
                 datePickerTextView.setText(date);
 
 //                Compute Age
+                age = 0;
                 int currentYear = calendar.get(Calendar.YEAR);
                 age = currentYear - year;
 
@@ -134,16 +136,12 @@ public class EGenderAge extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 personObject();
-//                dbAccess.otherDetails(person1.get_name(), person1.get_age(), person1.get_gender(), person1.get_barangay(), person1.get_housing(), person1.get_bldg(),
-//                        person1.get_total_household(), person1.get_name_of_enumerator(), person1.get_name_of_respondent(), person1.get_address(), person1.get_time_started()); // insert other details of the person to the database
                 iEgenderAge = new Intent(EGenderAge.this, Category.class); // call the next activity
                 iEgenderAge.putExtra("householdMem", sHouseholdMember);
                 iEgenderAge.putExtra("Age", String.valueOf(age));
 //              logging to console
-//                Log.d(TAG, "onClick: " + sHouseholdMember + " " + String.valueOf(age) + " " + gender);
+                Log.d(TAG, "onClick: " + sHouseholdMember + " " + String.valueOf(age) + " " + gender);
                 startActivity(iEgenderAge);
-
-
             }
         });
     }

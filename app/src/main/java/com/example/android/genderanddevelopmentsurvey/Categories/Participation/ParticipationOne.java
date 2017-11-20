@@ -2,6 +2,7 @@ package com.example.android.genderanddevelopmentsurvey.Categories.Participation;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,12 +12,18 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.android.genderanddevelopmentsurvey.Categories.Category;
 import com.example.android.genderanddevelopmentsurvey.R;
+import com.example.android.genderanddevelopmentsurvey.dbHelper;
 
 public class ParticipationOne extends AppCompatActivity {
 
-    String householdMember;
+    String householdMember, householdMembersAge, registeredVoter, ofw, absenteeVoting, voted, job;
     Intent participationOneIntent;
+    dbHelper dbAccess;
+    RadioGroup rg_partOne1, rg_partOne2, rg_partOne3, rg_partOne4;
+
+//    TODO: 1 of the questions share a radio group, separate them so that you can fetch data separately
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +33,13 @@ public class ParticipationOne extends AppCompatActivity {
 //        Recieve the extra data sent from Category.class
         participationOneIntent = getIntent();
         householdMember = participationOneIntent.getExtras().getString("householdMem");
+        householdMembersAge = participationOneIntent.getExtras().getString("Age");
 
 //        Display household members name in the toolbar
         this.setTitle("Participation: " + householdMember);
+
+//        database instance
+        dbAccess = new dbHelper(this);
 
 //        TextView tv_partOne1 = (TextView) findViewById(R.id.tv_partOne1);
         final TextView tv_partOne2 = (TextView) findViewById(R.id.tv_partOne2);
@@ -38,9 +49,36 @@ public class ParticipationOne extends AppCompatActivity {
 
 //        tv_partOne1.setText("Is " + householdMember + " a registered voter?");
 
-        final RadioGroup rg_partOne1 = (RadioGroup) findViewById(R.id.rg_partOne1);
-        final RadioGroup rg_partOne2 = (RadioGroup) findViewById(R.id.rg_partOne2);
-        final RadioGroup rg_partOne3 = (RadioGroup) findViewById(R.id.rg_partOne3);
+        rg_partOne1 = (RadioGroup) findViewById(R.id.rg_partOne1);
+        rg_partOne2 = (RadioGroup) findViewById(R.id.rg_partOne2);
+        rg_partOne3 = (RadioGroup) findViewById(R.id.rg_partOne3);
+        rg_partOne4 = (RadioGroup) findViewById(R.id.rg_partOne4);
+
+//        radio groups setOnClickListeners
+//        registered voter
+        rg_partOne1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton radioButton = (RadioButton) findViewById(checkedId);
+                registeredVoter = radioButton.getText().toString();
+            }
+        });
+//        job in the last 6 months
+        rg_partOne2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton radioButton = (RadioButton) findViewById(checkedId);
+                job = radioButton.getText().toString();
+            }
+        });
+//        absentee voting
+        rg_partOne3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
+                RadioButton radioButton = (RadioButton) findViewById(checkedId);
+                absenteeVoting = radioButton.getText().toString();
+            }
+        });
 
         Button btn_next = (Button) findViewById(R.id.btn_next);
 
@@ -107,10 +145,12 @@ public class ParticipationOne extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                participationOneIntent = new Intent(ParticipationOne.this, Category.class);
-//                participationOneIntent.putExtra("householdMem", householdMember);
-//                startActivity(participationOneIntent);
-                finish();
+//                dbAccess.updatePartOne(householdMember, ); // TODO: 10/23/2017
+                participationOneIntent = new Intent(ParticipationOne.this, Category.class);
+                participationOneIntent.putExtra("householdMem", householdMember);
+                participationOneIntent.putExtra("Age", householdMembersAge);
+                startActivity(participationOneIntent);
+//                finish();
             }
         });
     }

@@ -16,6 +16,7 @@
 
     <!--Are you a registered voter? RadioGroup-->
     <RadioGroup
+        android:id="@+id/rg_partOne1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -45,7 +46,7 @@
         android:visibility="gone" />
 
     <RadioGroup
-        android:id="@+id/rg_partOne1"
+        android:id="@+id/rg_partOne2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -98,7 +99,7 @@
         android:visibility="gone" />
 
     <RadioGroup
-        android:id="@+id/rg_partOne2"
+        android:id="@+id/rg_partOne4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -124,6 +125,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DON'T KNOW" />
+
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rg_partOne5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
 
     </RadioGroup>
 

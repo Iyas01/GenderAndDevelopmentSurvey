@@ -23,7 +23,7 @@ public class DemographyTwo extends AppCompatActivity implements AdapterView.OnIt
     String sCivilStatus;
     String sReligiousAff;
     String sIndigenous;
-    String householdMember;
+    String householdMember, householdMembersAge;
     dbHelper dbAccess;
 
     @Override
@@ -34,7 +34,7 @@ public class DemographyTwo extends AppCompatActivity implements AdapterView.OnIt
 //        Get data from DemographyOne: household members name
         demographyTwoIntent = getIntent();
         householdMember = demographyTwoIntent.getExtras().getString("householdMem");
-//        final String householdMembersAge = demographyTwoIntent.getExtras().getString("Age");
+        householdMembersAge = demographyTwoIntent.getExtras().getString("Age");
 
 //        Set the toolbar to display the household members name
         this.setTitle("Demography: " + householdMember);
@@ -89,7 +89,7 @@ public class DemographyTwo extends AppCompatActivity implements AdapterView.OnIt
                 dbAccess.updateDemTwo(householdMember, sCivilStatus, sReligiousAff, sIndigenous);
                 demographyTwoIntent = new Intent(DemographyTwo.this, Category.class);
                 demographyTwoIntent.putExtra("householdMem", householdMember);
-//                demographyTwoIntent.putExtra("Age", householdMembersAge);
+                demographyTwoIntent.putExtra("Age", householdMembersAge);
                 startActivity(demographyTwoIntent);
             }
         });

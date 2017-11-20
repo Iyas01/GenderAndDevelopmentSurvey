@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class dbHelper extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 8;
     private static final String DATABASE_NAME = "gad.db";
     private static final String TABLE_NAME = "records";
     private static final String COLUMN_ID = "_id";
@@ -33,7 +33,12 @@ public class dbHelper extends SQLiteOpenHelper {
     private static final String COLUMN_ATTENDING_SCHOOL = "Attending_School";
     private static final String COLUMN_PRIVATE_PUBLIC = "Private_or_Public";
     private static final String COLUMN_NOT_IN_SCHOOL = "Reason_not_in_School";
+    private static final String COLUMN_TECHVOC = "Technical_Vocational_Training";
+    private static final String COLUMN_TECHVOCNAME = "Name_of_Tech_Voc_Training";
     private static final String COLUMN_REGISTERED_VOTER = "Registered_Voter";
+    private static final String COLUMN_OFW = "OFW";
+    private static final String COLUMN_ABSENTEE_VOTING = "Absentee_Voting";
+    private static final String COLUMN_VOTED_IN_THE_LAST_ELECTION = "Voted_in_the_Last_Election";
     private static final String COLUMN_JOB = "Job";
     private static final String COLUMN_INDUSTRY_TYPE = "Industry_Type";
     private static final String COLUMN_WORKING_HOURS = "Working_Hours";
@@ -95,7 +100,12 @@ public class dbHelper extends SQLiteOpenHelper {
                 COLUMN_ATTENDING_SCHOOL + "' TEXT, '" +
                 COLUMN_PRIVATE_PUBLIC + "' TEXT, '" +
                 COLUMN_NOT_IN_SCHOOL + "' TEXT, '" +
+                COLUMN_TECHVOC + "' TEXT, '" +
+                COLUMN_TECHVOCNAME + "' TEXT, '" +
                 COLUMN_REGISTERED_VOTER + "' TEXT, '" +
+                COLUMN_OFW + "' TEXT, '" +
+                COLUMN_ABSENTEE_VOTING + "' TEXT, '" +
+                COLUMN_VOTED_IN_THE_LAST_ELECTION + "' TEXT, '" +
                 COLUMN_JOB + "' TEXT, '" +
                 COLUMN_INDUSTRY_TYPE + "' TEXT, '" +
                 COLUMN_WORKING_HOURS + "' TEXT, '" +
@@ -212,6 +222,30 @@ public class dbHelper extends SQLiteOpenHelper {
                 COLUMN_ATTENDING_SCHOOL + " = '" + attending_school + "', " +
                 COLUMN_PRIVATE_PUBLIC + " = '" + private_or_public + "', " +
                 COLUMN_NOT_IN_SCHOOL + " = '" + not_in_school + "' " +
+                "WHERE " +
+                COLUMN_NAME + " = '" + householdMember + "';");
+        db.close();
+    }
+
+    public void updateEduTwo(String householdMember, String techVoc, String techVocName) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE " + TABLE_NAME + " SET " +
+                COLUMN_LITERACY + " = '" + techVoc + "', " +
+                COLUMN_EDUCATION + " = '" + techVocName + "' " +
+                "WHERE " +
+                COLUMN_NAME + " = '" + householdMember + "';");
+        db.close();
+    }
+
+    public void updatePartOne(String householdMember, String registeredVoter, String ofw,
+                              String absenteeVoting, String voted, String job) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("UPDATE " + TABLE_NAME + " SET " +
+                COLUMN_REGISTERED_VOTER + " = '" + registeredVoter + "', " +
+                COLUMN_OFW + " = '" + ofw + "', " +
+                COLUMN_ABSENTEE_VOTING + " = '" + absenteeVoting + "', " +
+                COLUMN_VOTED_IN_THE_LAST_ELECTION + " = '" + voted + "', " +
+                COLUMN_JOB + " = '" + job + "' " +
                 "WHERE " +
                 COLUMN_NAME + " = '" + householdMember + "';");
         db.close();
