@@ -23,7 +23,7 @@ public class ParticipationOne extends AppCompatActivity {
     dbHelper dbAccess;
     RadioGroup rg_partOne1, rg_partOne2, rg_partOne3, rg_partOne4;
 
-//    TODO: 1 of the questions share a radio group, separate them so that you can fetch data separately
+// TODO: 1 of the questions share a radio group, separate them so that you can fetch data separately
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
